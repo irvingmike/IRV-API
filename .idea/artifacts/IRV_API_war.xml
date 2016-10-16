@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="IRV-API:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="irv-api.war">
+      <element id="artifact" artifact-name="IRV-API:war exploded" />
+    </root>
+  </artifact>
+</component>
