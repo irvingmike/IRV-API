@@ -1,7 +1,7 @@
-package com.irvingmichael.irv.persistance;
+package com.irvingmichael.irvapi.persistance;
 
-import com.irvingmichael.irv.entity.Poll;
-import com.irvingmichael.irv.persistance.GenericDao;
+import com.irvingmichael.irvapi.entity.Poll;
+import com.irvingmichael.irvapi.persistance.GenericDao;
 
 /**
  * Created by Aaron Anderson on 10/9/16.

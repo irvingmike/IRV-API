@@ -1,4 +1,4 @@
-package com.irvingmichael.irv.entity;
+package com.irvingmichael.irvapi.entity;
 
 import com.irvingmichael.irv.entity.Choice;
 import com.irvingmichael.irv.entity.Poll;
