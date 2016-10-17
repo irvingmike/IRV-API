@@ -1,4 +1,4 @@
-package com.irvingmichael.irv.persistance;
+package com.irvingmichael.irvapi.persistance;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;

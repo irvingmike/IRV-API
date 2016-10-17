@@ -1,7 +1,7 @@
-package com.irvingmichael.irv.persistance;
+package com.irvingmichael.irvapi.persistance;
 
-import com.irvingmichael.irv.entity.Vote;
-import com.irvingmichael.irv.entity.Voter;
+import com.irvingmichael.irvapi.entity.*;
+import com.irvingmichael.irvapi.persistance.*;
 import org.hibernate.Session;
 import org.apache.log4j.Logger;
 
@@ -20,6 +20,7 @@ public class VoteDao extends GenericDao {
     }
 
     public Vote getVoteByVoterIdPollId(int voterId, int pollId) {
+        logger.debug("***** In: getVoteByVoterIdPollId *****");
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Vote vote = new Vote();
         LinkedHashMap<Integer, Integer> tempMap = new LinkedHashMap<Integer, Integer>();

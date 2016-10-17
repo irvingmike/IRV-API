@@ -1,4 +1,4 @@
-package com.irvingmichael.irv.persistance;
+package com.irvingmichael.irvapi.persistance;
 
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;

@@ -1,4 +1,4 @@
-package com.irvingmichael.irv.entity;
+package com.irvingmichael.irvapi.entity;
 
 import org.apache.log4j.Logger;
 
