@@ -1,6 +1,8 @@
 package com.irvingmichael.irvapi.persistance;
 
+import com.irvingmichael.irvapi.entity.Choice;
 import com.irvingmichael.irvapi.entity.Voter;
+import com.irvingmichael.irvapi.persistance.SessionFactoryProvider;
 import org.apache.log4j.Logger;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;

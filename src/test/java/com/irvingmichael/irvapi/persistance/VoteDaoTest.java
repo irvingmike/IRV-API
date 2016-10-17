@@ -1,4 +1,4 @@
-package com.irvingmichael.irv.persistance;
+package com.irvingmichael.irvapi.persistance;
 
 import com.irvingmichael.irv.entity.Vote;
 import org.junit.Test;

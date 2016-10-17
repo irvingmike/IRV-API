@@ -20,7 +20,9 @@ public class VoteDao extends GenericDao {
     }
 
     public Vote getVoteByVoterIdPollId(int voterId, int pollId) {
-        logger.debug("***** In: getVoteByVoterIdPollId *****");
+
+        logger.debug("***** IN: getVoteByVoterIdPollId *****");
+
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Vote vote = new Vote();
         LinkedHashMap<Integer, Integer> tempMap = new LinkedHashMap<Integer, Integer>();

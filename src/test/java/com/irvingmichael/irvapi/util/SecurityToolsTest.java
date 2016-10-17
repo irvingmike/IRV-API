@@ -1,4 +1,4 @@
-package com.irvingmichael.irv.util;
+package com.irvingmichael.irvapi.util;
 
 import org.apache.log4j.Logger;
 import org.junit.Test;
