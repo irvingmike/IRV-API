@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - irv_project@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="irv_project">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="information_schema"/>
+    <schema id="3" name="mysql"/>
+    <schema id="4" name="performance_schema"/>
+    <schema id="5" name="SAMPLE"/>
+    <schema id="6" name="securityExrc"/>
+    <schema id="7" name="sys"/>
+    <table id="8" parent="1" name="AccessRoles"/>
+    <table id="9" parent="1" name="Choices"/>
+    <table id="10" parent="1" name="Polls"/>
+    <table id="11" parent="1" name="Voters"/>
+    <table id="12" parent="1" name="VotersPolls"/>
+    <table id="13" parent="1" name="Votes"/>
+    <column id="14" parent="8" name="email">
+      <mandatory>1</mandatory>
+      <data-type>varchar(254)|0</data-type>
+    </column>
+    <column id="15" parent="8" name="accessrole">
+      <mandatory>1</mandatory>
+      <data-type>varchar(45)|0</data-type>
+    </column>
+    <key id="16" parent="8" name="PRIMARY">
+      <columns>email</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="17" parent="8" name="fk_emailVoters_accessRoles">
+      <columns>email</columns>
+      <ref-key>~.Voters.email_UNIQUE</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="18" parent="9" name="choiceid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="19" parent="9" name="name">
+      <mandatory>1</mandatory>
+      <data-type>varchar(45)|0</data-type>
+    </column>
+    <column id="20" parent="9" name="description">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="21" parent="9" name="pollid">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <index id="22" parent="9" name="fk_pollid_choices_idx">
+      <columns>pollid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="23" parent="9" name="PRIMARY">
+      <columns>choiceid</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="24" parent="9" name="fk_pollid_choices">
+      <columns>pollid</columns>
+      <ref-key>~.Polls.PRIMARY</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="25" parent="10" name="pollid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="26" parent="10" name="title">
+      <mandatory>1</mandatory>
+      <data-type>varchar(45)|0</data-type>
+    </column>
+    <column id="27" parent="10" name="description">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="28" parent="10" name="pollcode">
+      <mandatory>1</mandatory>
+      <data-type>char(8)|0</data-type>
+    </column>
+    <column id="29" parent="10" name="available">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(1)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="30" parent="10" name="votingopen">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="31" parent="10" name="votingclosed">
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="32" parent="10" name="creator">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <index id="33" parent="10" name="fk_voterid_polls_idx">
+      <columns>creator</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="34" parent="10" name="PRIMARY">
+      <columns>pollid</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="35" parent="10" name="fk_voterid_polls">
+      <columns>creator</columns>
+      <ref-key>~.Voters.PRIMARY</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="36" parent="11" name="voterid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="37" parent="11" name="firstname">
+      <data-type>varchar(45)|0</data-type>
+    </column>
+    <column id="38" parent="11" name="lastname">
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="39" parent="11" name="email">
+      <mandatory>1</mandatory>
+      <data-type>varchar(254)|0</data-type>
+    </column>
+    <column id="40" parent="11" name="securedby">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <index id="41" parent="11" name="email_UNIQUE">
+      <columns>email</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="42" parent="11" name="index_email">
+      <columns>email</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="43" parent="11" name="PRIMARY">
+      <columns>voterid</columns>
+      <primary>1</primary>
+    </key>
+    <key id="44" parent="11" name="email_UNIQUE">
+      <columns>email</columns>
+      <underlying-index>email_UNIQUE</underlying-index>
+    </key>
+    <column id="45" parent="12" name="voterid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="46" parent="12" name="pollid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <index id="47" parent="12" name="fk_pollid_polls_idx">
+      <columns>pollid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="48" parent="12" name="fk_voterid_voters_idx">
+      <columns>voterid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="49" parent="12" name="PRIMARY">
+      <columns>pollid
+voterid</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="50" parent="12" name="fk_voterid_voters">
+      <columns>voterid</columns>
+      <ref-key>~.Voters.PRIMARY</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="51" parent="12" name="fk_pollid_polls">
+      <columns>pollid</columns>
+      <ref-key>~.Polls.PRIMARY</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="52" parent="13" name="voteid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="53" parent="13" name="rank">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="54" parent="13" name="votecast">
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+      <default-expression>CURRENT_TIMESTAMP</default-expression>
+    </column>
+    <column id="55" parent="13" name="choiceid">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="56" parent="13" name="pollid">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="57" parent="13" name="voterid">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <index id="58" parent="13" name="fk_choice-id_choices_idx">
+      <columns>choiceid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="59" parent="13" name="fk_poll-id_choices_idx">
+      <columns>pollid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="60" parent="13" name="fk_voter-id_choices_idx">
+      <columns>voterid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="61" parent="13" name="PRIMARY">
+      <columns>voteid</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="62" parent="13" name="fk_choiceid_votes">
+      <columns>choiceid</columns>
+      <ref-key>~.Choices.PRIMARY</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="63" parent="13" name="fk_pollid_votes">
+      <columns>pollid</columns>
+      <ref-key>~.Polls.PRIMARY</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="64" parent="13" name="fk_voterid_votes">
+      <columns>voterid</columns>
+      <ref-key>~.Voters.PRIMARY</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+  </database-model>
+</dataSource>

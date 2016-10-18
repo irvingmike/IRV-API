@@ -1,6 +1,6 @@
 package com.irvingmichael.irvapi.entity;
 
-import com.irvingmichael.irv.entity.*;
+import com.irvingmichael.irvapi.entity.*;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;

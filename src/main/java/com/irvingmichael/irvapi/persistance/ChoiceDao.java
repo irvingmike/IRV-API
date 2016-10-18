@@ -3,11 +3,9 @@ package com.irvingmichael.irvapi.persistance;
 import com.irvingmichael.irvapi.entity.Choice;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

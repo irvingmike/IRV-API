@@ -1,9 +1,6 @@
 package com.irvingmichael.irvapi.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.LinkedHashMap;
 
 /**
@@ -15,7 +12,9 @@ import java.util.LinkedHashMap;
 public class Vote {
 
     @Id
+    @GeneratedValue
     @Column(name = "voteid")
+    int voteid;
 
     private LinkedHashMap<Integer, Integer> voteRankings;
     private LinkedHashMap<Integer, Integer> currentRankings;

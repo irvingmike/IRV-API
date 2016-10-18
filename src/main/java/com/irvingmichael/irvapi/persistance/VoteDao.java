@@ -8,7 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
- * Created by Aaron Anderson on 10/9/16.
+ * @author Aaron Anderson
  */
 public class VoteDao extends GenericDao {
 
@@ -30,8 +30,8 @@ public class VoteDao extends GenericDao {
         List<Object[]> rows = session.createSQLQuery(sqlQuery).list();
 
         for (Object[] row : rows) {
-            int choiceId = (int) row[0];
-            int rank = (int) row[1];
+            int choiceId = (Integer) row[0];
+            int rank = (Integer) row[1];
             tempMap.put(choiceId, rank);
         }
 

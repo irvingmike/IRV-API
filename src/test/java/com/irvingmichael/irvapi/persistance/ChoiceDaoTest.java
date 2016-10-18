@@ -1,6 +1,6 @@
 package com.irvingmichael.irvapi.persistance;
 
-import com.irvingmichael.irv.entity.*;
+import com.irvingmichael.irvapi.entity.*;
 import org.junit.Test;
 
 import java.util.List;
@@ -17,12 +17,12 @@ public class ChoiceDaoTest {
         ChoiceDao choice001 = new ChoiceDao();
         assertEquals("Wrong number of choices returned", 4, choice001.getAllChoicesForPoll(1).size());
     }
-
+/*
     @Test
     public void testGetAll() throws Exception {
         ChoiceDao choiceDao = new ChoiceDao();
         List<Choice> choices = choiceDao.getAll();
         assertEquals(4, choices.size());
-    }
+    }*/
 
 }

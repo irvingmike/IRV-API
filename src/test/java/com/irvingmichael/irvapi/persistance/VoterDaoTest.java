@@ -1,6 +1,6 @@
 package com.irvingmichael.irvapi.persistance;
 
-import com.irvingmichael.irv.entity.Voter;
+import com.irvingmichael.irvapi.entity.Voter;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 

@@ -1,8 +1,8 @@
 package com.irvingmichael.irvapi.entity;
 
-import com.irvingmichael.irv.entity.Choice;
-import com.irvingmichael.irv.entity.Poll;
-import com.irvingmichael.irv.entity.Vote;
+import com.irvingmichael.irvapi.entity.Choice;
+import com.irvingmichael.irvapi.entity.Poll;
+import com.irvingmichael.irvapi.entity.Vote;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
