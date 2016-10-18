@@ -1,6 +1,6 @@
 package com.irvingmichael.irvapi.persistance;
 
-import com.irvingmichael.irv.entity.Vote;
+import com.irvingmichael.irvapi.entity.Vote;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
