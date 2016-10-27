@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 public class PollTest {
 
     private static Poll poll;
-    private final Logger logger = Logger.getLogger(this.getClass());
+    private final Logger log = Logger.getLogger("debugLogger");
 
     @BeforeClass
     public static void setup() {
@@ -25,11 +25,11 @@ public class PollTest {
     }
     @Test
     public void countVotes() throws Exception {
-        logger.debug("***** Vote Counting *****");
+        log.debug("***** Vote Counting *****");
         poll = new TestPollSetup().testPoll;
         poll.countVotes();
         for (Map.Entry<Integer, Integer> entry : poll.getVoteCounts().entrySet()) {
-            logger.debug("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+            log.debug("Key: " + entry.getKey() + ", Value: " + entry.getValue());
         }
         assertEquals("Bad count for choice A", (Integer) 3, poll.getVoteCounts().get(1));
         assertEquals("Bad count for choice B", (Integer) 4, poll.getVoteCounts().get(2));
@@ -137,9 +137,9 @@ public class PollTest {
     @Test
     public void setVotesCountsToZero() throws Exception {
         poll.setVoteCounts(new HashMap<Integer, Integer>() {{
-                put(1,1);
-                put(2,2);
-                put(3,3);
+            put(1,1);
+            put(2,2);
+            put(3,3);
         }});
         poll.setVotesCountsToZero();
         assertEquals("Vote count 1 didn't set to zero", (Integer) 0, poll.getVoteCounts().get(1));

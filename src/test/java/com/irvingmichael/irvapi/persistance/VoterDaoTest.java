@@ -11,6 +11,14 @@ import static org.junit.Assert.*;
  */
 public class VoterDaoTest {
 
+    @Test
+    public void getVoterByEmail() throws Exception {
+        VoterDao voterDao = new VoterDao();
+        String email = "irvingmichael@gmail.com";
+        Voter voter = voterDao.getVoterByEmail(email);
+        assertEquals("Bad voter returned by getVoterByEmail", 11, voter.getVoterId());
+    }
+
     private final Logger log = Logger.getLogger(this.getClass());
 
     @Test

@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
@@ -16,13 +17,12 @@ import java.util.List;
 public class VoterDao<T> extends GenericDao {
 
     private Session session = SessionFactoryProvider.getSessionFactory().openSession();
-    private final Logger log = Logger.getLogger(this.getClass());
 
     public VoterDao() { super(Voter.class); }
 
     public List<Voter> getAllVotersForPoll(int pollId) {
         List<Voter> voters;
-        voters = session.createSQLQuery("SELECT Voters.voterid, Voters.firstname, Voters.lastname, Voters.email, Voters.securedby FROM Voters JOIN VotersPolls ON Voters.voterid = VotersPolls.voterid WHERE VotersPolls.pollid = 1").addEntity(Voter.class).list();
+        voters = session.createSQLQuery("SELECT Voters.voterid, Voters.firstname, Voters.lastname, Voters.email, Voters.securedby FROM Voters JOIN VotersPolls ON Voters.voterid = VotersPolls.voterid WHERE VotersPolls.pollid = " + pollId).addEntity(Voter.class).list();
         return voters;
     }
 
@@ -33,5 +33,13 @@ public class VoterDao<T> extends GenericDao {
         sql.setParameter("id", id);
         sql.executeUpdate();
         tx.commit();
+    }
+
+    public Voter getVoterByEmail(String email) {
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        return (Voter) session.createCriteria(Voter.class)
+                .add(Restrictions.eq("email", email))
+                .list()
+                .get(0);
     }
 }

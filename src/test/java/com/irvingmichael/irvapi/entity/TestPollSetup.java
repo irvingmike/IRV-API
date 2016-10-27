@@ -15,7 +15,7 @@ public class TestPollSetup {
 
     Poll testPoll;
 
-    private final Logger logger = Logger.getLogger(this.getClass());
+    private final Logger log = Logger.getLogger("debugLogger");
 
 
     TestPollSetup() {

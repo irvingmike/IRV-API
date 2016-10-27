@@ -13,18 +13,16 @@ import java.util.List;
  */
 public class VoteDao extends GenericDao {
 
-    private final Logger logger = Logger.getLogger(this.getClass());
+    private final Logger log = Logger.getLogger("debugLogger");
 
     public VoteDao() {
         super(Vote.class);
     }
 
     public Vote getVoteByVoterIdPollId(int voterId, int pollId) {
-
-        logger.debug("***** IN: getVoteByVoterIdPollId *****");
-
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        Vote vote = new Vote();
+        Vote vote = new Vote(voterId, pollId);
+
         LinkedHashMap<Integer, Integer> tempMap = new LinkedHashMap<Integer, Integer>();
 
         String sqlQuery = "SELECT choiceid, rank FROM Votes WHERE voterid = " + voterId + " AND pollid = " + pollId + " ORDER BY choiceid";
@@ -32,8 +30,8 @@ public class VoteDao extends GenericDao {
         List<Object[]> rows = session.createSQLQuery(sqlQuery).list();
 
         for (Object[] row : rows) {
-            int choiceId = (Integer) row[0];
-            int rank = (Integer) row[1];
+            int choiceId = (int) row[0];
+            int rank = (int) row[1];
             tempMap.put(choiceId, rank);
         }
 
@@ -42,4 +40,5 @@ public class VoteDao extends GenericDao {
 
         return vote;
     }
+
 }

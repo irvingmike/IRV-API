@@ -6,32 +6,100 @@ import java.util.*;
 
 import org.apache.commons.lang.RandomStringUtils;
 
+import javax.persistence.*;
+
 
 /**
  * Created by aaron on 9/10/16.
  */
 
+@Entity
+@Table(name = "Polls")
 public class Poll {
 
-    private final Logger logger = Logger.getLogger(this.getClass());
+    @Id
+    @GeneratedValue
+    @Column(name = "pollid")
+    private int pollid;
 
-    private int id;
+    @Column(name="title")
     private String title;
+
+    @Column(name="description")
+    private String description;
+
+    @Column(name="available")
+    private Boolean available;
+
+    @Transient
     private ArrayList<Choice> choices;
+    @Transient
     private ArrayList<Vote> votes;
+    @Transient
     private HashMap<Integer, Integer> voteCounts;
+
+    @Column(name="creator")
+    private int creator;
+
+    @Column(name="winner")
     private int winner;
+
+    @Column(name="pollcode")
     private String pollCode;
+
     private PollStatus status;
 
+    public Poll() {}
+
     public Poll(String title) {
+        this();
         this.title = title;
         winner = -1;
         choices = new ArrayList<Choice>();
         votes = new ArrayList<Vote>();
         voteCounts = new HashMap<Integer, Integer>();
         pollCode = "";
-        status = PollStatus.initial;
+        status = PollStatus.INITIAL;
+    }
+
+    public int getPollid() {
+        return pollid;
+    }
+
+    public void setPollid(int pollid) {
+        this.pollid = pollid;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Boolean getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(Boolean available) {
+        this.available = available;
+    }
+
+    public int getCreator() {
+        return creator;
+    }
+
+    public void setCreator(int creator) {
+        this.creator = creator;
     }
 
     public ArrayList<Choice> getChoices() {
@@ -62,8 +130,17 @@ public class Poll {
         return winner;
     }
 
-    public void setWinner(int winner) {
+    private  void setWinner(int winner) {
         this.winner = winner;
+    }
+
+    @Enumerated(EnumType.STRING)
+    public PollStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(PollStatus status) {
+        this.status = status;
     }
 
     String getPollCode() {
@@ -87,7 +164,7 @@ public class Poll {
 
     void determineWinner() {
 
-        status = PollStatus.closed;
+        status = PollStatus.CLOSED;
 
         for (Vote vote : votes) {
             vote.setCurrentRankings(vote.getVoteRankings());
@@ -137,10 +214,10 @@ public class Poll {
     Boolean winnerExists() {
         for (Map.Entry<Integer, Integer> entry : voteCounts.entrySet()) {
             if (entry.getValue() > getWinThreshold()) {
+                this.winner = entry.getKey();
                 return true;
             }
         }
-        logger.debug("No winner for you!");
         return false;
     }
 

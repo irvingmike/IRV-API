@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class ChoiceDao extends GenericDao {
 
-    private final Logger log = Logger.getLogger(this.getClass());
+    private final Logger log = Logger.getLogger("debugLogger");
 
     public ChoiceDao() { super(Choice.class); }
 

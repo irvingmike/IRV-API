@@ -25,23 +25,18 @@ public class Voter {
 
     @Column(name = "email")
     private String email;
-/*
-    @Column(name = "securedby")
-    private String password;
-*/
+
     public  Voter() { this.voterId = -1; };
 
     public Voter(String email) {
         this();
         this.email = email;
-        // this.password = password;
     }
 
     public Voter(String firstName, String lastName, String email) {
-        this();
+        this(email);
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
     }
 
     public void setVoterId(int voterId) {

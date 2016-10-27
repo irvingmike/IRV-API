@@ -12,16 +12,54 @@ import java.util.LinkedHashMap;
 public class Vote {
 
     @Id
-    @GeneratedValue
     @Column(name = "voteid")
-    int voteid;
+    private int voteId;
 
+    @Column(name = "pollid")
+    private int pollId;
+
+    @Column(name = "voterid")
+    private int voterId;
+
+    @Transient
     private LinkedHashMap<Integer, Integer> voteRankings;
+
+    @Transient
     private LinkedHashMap<Integer, Integer> currentRankings;
 
     public Vote() {
         voteRankings = new LinkedHashMap<Integer, Integer>();
         currentRankings = new LinkedHashMap<Integer, Integer>();
+    }
+
+    public Vote(int voterId, int pollId) {
+        this();
+        this.voterId = voterId;
+        this.pollId = pollId;
+    }
+
+    public int getVoteId() {
+        return voteId;
+    }
+
+    public void setVoteId(int voteId) {
+        this.voteId = voteId;
+    }
+
+    public int getPollId() {
+        return pollId;
+    }
+
+    public void setPollId(int pollId) {
+        this.pollId = pollId;
+    }
+
+    public int getVoterId() {
+        return voterId;
+    }
+
+    public void setVoterId(int voterId) {
+        this.voterId = voterId;
     }
 
     public LinkedHashMap<Integer, Integer> getVoteRankings() {
