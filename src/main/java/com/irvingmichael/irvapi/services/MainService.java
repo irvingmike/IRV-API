@@ -2,6 +2,7 @@ package com.irvingmichael.irvapi.services;
 
 import com.google.gson.Gson;
 import com.irvingmichael.irvapi.entity.Voter;
+import com.irvingmichael.irvapi.persistance.PollDao;
 import com.irvingmichael.irvapi.persistance.VoterDao;
 import com.irvingmichael.irvapi.util.Secure;
 import com.irvingmichael.irvapi.util.AuthToken;
@@ -20,6 +21,12 @@ public class MainService {
 
     private final Logger log = Logger.getLogger("debugLogger");
 
+    /**
+     * Method to get a single voter by supplying an id
+     * @param authtoken Token required to access the API
+     * @param suppliedEmail Email for voter to retrieve
+     * @return Response sent requestor as JSON
+     */
     @GET
     @Path("/getVoterByEmail")
     @Produces("application/json")
@@ -32,10 +39,19 @@ public class MainService {
             String jsonString = gson.toJson(voter);
             return Response.status(200).entity(jsonString).build();
         } else {
-            return Response.status(400).entity("{ \"authtoken\":\"Bad token supplied\" }").build();
+            return Response.status(400).entity("{ \"result\":\"Bad token supplied\" }").build();
         }
     }
 
+    /**
+     * Add a new user to the database
+     * @param authtoken Token required to access the API
+     * @param firstname New voter first name
+     * @param lastname New voter last name
+     * @param email New voter email
+     * @param password New voter password
+     * @return Response sent requestor as JSON
+     */
     @POST
     @Path("/createNewVoter")
     @Produces("text/plain")
@@ -53,10 +69,16 @@ public class MainService {
             String jsonString = gson.toJson(voterId);
             return Response.status(200).entity(jsonString).build();
         } else {
-            return Response.status(400).entity("{ \"authtoken\":\"Bad token supplied\" }").build();
+            return Response.status(400).entity("{ \"result\":\"Bad token supplied\" }").build();
         }
     }
 
+    /**
+     * Login with existing account
+     * @param username Email address for account to access
+     * @param password Password for account
+     * @return Response sent back to requestor as JSON
+     */
     @POST
     @Path("/login")
     @Produces("application/json")
@@ -69,7 +91,36 @@ public class MainService {
         return Response.status(400).entity(" { \"Bad username or password supplied\" }").build();
     }
 
-    // Just for retrieving info
+    /**
+     *
+     * @param authtoken Token required to access the API
+     * @param pollcode Pollcode for poll to register with
+     * @param stringId VoterId for voter to register
+     * @return Response sent back to requestor as JSON
+     */
+    @POST
+    @Path("/registerWithPoll")
+    @Produces("application/json")
+    public Response registerForPollWithCode(@QueryParam("authToken") String authtoken,
+                                            @QueryParam("pollcode") String pollcode,
+                                            @QueryParam("voterid") String stringId) {
+        if (AuthToken.valid(authtoken)) {
+            VoterDao voterDao = new VoterDao();
+            PollDao pollDao = new PollDao();
+            int voterId = Integer.parseInt(stringId);
+            if (!voterDao.validateVoterId(voterId)) {
+                return Response.status(400).entity(" { \"Bad voterId supplied\" }").build();
+            } else if (pollcode.matches("^[a-zA-Z0-9]{8}$") && pollDao.registerVoterForPoll(pollcode, voterId)) {
+                return Response.status(200).entity("{ \"result\":\"success\" }").build();
+            } else {
+                return Response.status(400).entity(" { \"Bad poll code supplied\" }").build();
+            }
+        } else {
+            return Response.status(400).entity("{ \"result\":\"Bad token supplied\" }").build();
+        }
+    }
+
+    // Just for basic request setup
     @GET
     @Produces("application/json")
     public Response get() {

@@ -1,9 +1,6 @@
 package com.irvingmichael.irvapi.persistance;
 
-import com.irvingmichael.irvapi.entity.Choice;
 import com.irvingmichael.irvapi.entity.Voter;
-import com.irvingmichael.irvapi.persistance.SessionFactoryProvider;
-import org.apache.log4j.Logger;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -54,6 +51,15 @@ public class VoterDao<T> extends GenericDao {
         tx.commit();
 
         return Objects.nonNull(valid);
+    }
 
+    public Boolean validateVoterId(int voterId) {
+        Transaction tx = session.beginTransaction();
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        SQLQuery sql = session.createSQLQuery("SELECT * FROM Voters WHERE voterId=:id");
+        sql.setParameter("id", voterId);
+        Object valid = sql.uniqueResult();
+        tx.commit();
+        return Objects.nonNull(valid);
     }
 }

@@ -11,6 +11,13 @@ import static org.junit.Assert.*;
  */
 public class VoterDaoTest {
     @Test
+    public void validateVoterId() throws Exception {
+        VoterDao voterDao = new VoterDao();
+        assertTrue(voterDao.validateVoterId(11));
+        assertFalse(voterDao.validateVoterId(-99));
+    }
+
+    @Test
     public void verifyUser() throws Exception {
         VoterDao voterDao = new VoterDao();
         assertTrue(voterDao.verifyUser("fake1@fake.com", "1cf311c819be2d73ab4a3c8cb5327418c4f9e30cb17adb4c9330272fcc8e984c"));
