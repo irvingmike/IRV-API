@@ -10,7 +10,9 @@ import javax.persistence.*;
 
 
 /**
- * Created by aaron on 9/10/16.
+ * Poll class that holds the information for a specific poll and performs most of the functionality of a poll
+ *
+ * @author Aaron Anderson
  */
 
 @Entity
@@ -49,8 +51,15 @@ public class Poll {
 
     private PollStatus status;
 
+    /**
+     * Empty constructor
+     */
     public Poll() {}
 
+    /**
+     * Main use constructor for a Poll
+     * @param title Name of the poll
+     */
     public Poll(String title) {
         this();
         this.title = title;
@@ -143,6 +152,10 @@ public class Poll {
         this.status = status;
     }
 
+    /**
+     * Generates and sets a new poll code for Poll if it doesn't exist.
+     * @return Pollcode for registering a voter with a poll
+     */
     String getPollCode() {
         if (pollCode.length() != 8) {
             pollCode = RandomStringUtils.random(8, true, true);
@@ -150,6 +163,10 @@ public class Poll {
         return pollCode;
     }
 
+    /**
+     * Determines the win threshold based on the number of choice in a the poll
+     * @return Number of votes required to win the poll
+     */
     int getWinThreshold() {
         int winThreshold = -1;
         if (votes.size() < 1) {
@@ -162,6 +179,9 @@ public class Poll {
         return winThreshold;
     }
 
+    /**
+     * Calculates and sets the winner of the poll
+     */
     void determineWinner() {
 
         status = PollStatus.CLOSED;
@@ -180,6 +200,9 @@ public class Poll {
         }
     }
 
+    /**
+     * Initiates the counting of votes for the poll
+     */
     void countVotes() {
         setVotesCountsToZero();
         for (Vote vote : votes) {
@@ -188,15 +211,11 @@ public class Poll {
         }
     }
 
-
-
-    void resetChoiceCounts() {
-        voteCounts = new HashMap<Integer, Integer>();
-        for (Choice choice : choices) {
-            voteCounts.put(choice.getId(), 0);
-        }
-    }
-
+    /**
+     * Determines the highest ranked choice for the vote
+     * @param vote Vote to find choice for
+     * @return ChoiceId associated with the highest randed choice for vote
+     */
     int findHighestRankedChoice(Vote vote) {
         int idToReturn = -1;
         int highestRank = Integer.MAX_VALUE;
@@ -211,6 +230,10 @@ public class Poll {
         return idToReturn;
     }
 
+    /**
+     * Determines if one choice has enough votes to win
+     * @return True if a choice has enough votes to win
+     */
     Boolean winnerExists() {
         for (Map.Entry<Integer, Integer> entry : voteCounts.entrySet()) {
             if (entry.getValue() > getWinThreshold()) {
@@ -221,6 +244,10 @@ public class Poll {
         return false;
     }
 
+    /**
+     * Determines the choice that currently has the lowest number of votes
+     * @return ChoiceId of lowest vote getting choice
+     */
     int getLowestVoteGetter() {
         int idToReturn = -1;
         int lowestVoteCount = Integer.MAX_VALUE;
@@ -233,6 +260,12 @@ public class Poll {
         return idToReturn;
     }
 
+    /**
+     * Removes choice from contention in current poll
+     * @param idToRemove ChoiceId to remove
+     * @param votes Array of votes to remove the choice form
+     * @return Array of votes with choice removed
+     */
     ArrayList<Vote> removeChoiceFromContention(int idToRemove, ArrayList<Vote> votes) {
         ArrayList<Vote> newVotes = new ArrayList<Vote>();
         for (Vote vote : votes) {
@@ -241,6 +274,12 @@ public class Poll {
         return newVotes;
     }
 
+    /**
+     * Removes a specific choice from the supplied vote
+     * @param idToRemove ChoiceId to remove
+     * @param vote Vote to remove choice from
+     * @return Vote without choice in current rankings
+     */
     Vote removeChoiceFromVote(int idToRemove, Vote vote) {
         Vote newVote = new Vote();
         newVote.setVoteRankings(vote.getVoteRankings());
@@ -252,6 +291,9 @@ public class Poll {
         return newVote;
     }
 
+    /**
+     * Reset the vote counts for the current poll to zero
+     */
     void setVotesCountsToZero() {
         voteCounts = new HashMap<Integer, Integer>();
         for (Choice choice : choices) {
@@ -259,6 +301,11 @@ public class Poll {
         }
     }
 
+    /**
+     * Determines the choice name based on choice id
+     * @param id ChoiceId to find name for
+     * @return Name of Choice
+     */
     String getChoiceNameById(int id) {
         for (Choice choice : choices) {
             if (choice.getId() == id) {

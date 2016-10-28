@@ -28,14 +28,30 @@ public class Choice {
     @Column(name = "pollid")
     private int pollId;
 
+    /**
+     * Empty constructor
+     */
     protected Choice() {}
 
+    /**
+     * Constructor for Choice class
+     * @param name Name of choice
+     */
     public Choice(String name) { this(); this.setName(name); }
 
-    public Choice(int id, String name) { this(name); this.setId(id); }
-
+    /**
+     * Constructor for Choice class
+     * @param name Name of choice
+     * @param pollId Id for poll that the choice is used in
+     */
     public Choice(String name, int pollId) { this(name); this.setPollId(pollId); }
 
+    /**
+     * Constructor for Choice class
+     * @param name Name of choice
+     * @param pollId Id for poll that the choice is used in
+     * @param description Long description of choice
+     */
     public Choice(String name, int pollId, String description) { this(name, pollId); this.setDescription(description);}
 
     public void setId(int id) { this.id = id; }

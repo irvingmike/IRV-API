@@ -4,7 +4,9 @@ import javax.persistence.*;
 import java.util.LinkedHashMap;
 
 /**
- * Created by aaron on 9/10/16.
+ * Vote class, holds all the information for a single vote for a voter in a poll
+ *
+ * @author Aaron Anderson
  */
 
 @Entity
@@ -27,11 +29,19 @@ public class Vote {
     @Transient
     private LinkedHashMap<Integer, Integer> currentRankings;
 
+    /**
+     * Empty constructor
+     */
     public Vote() {
         voteRankings = new LinkedHashMap<Integer, Integer>();
         currentRankings = new LinkedHashMap<Integer, Integer>();
     }
 
+    /**
+     * Main constructor for Vote
+     * @param voterId VoterId of voter that cast vote
+     * @param pollId PollId for the poll Vote is cast in
+     */
     public Vote(int voterId, int pollId) {
         this();
         this.voterId = voterId;
