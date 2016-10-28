@@ -2,7 +2,6 @@ package com.irvingmichael.irvapi.util;
 
 import com.irvingmichael.irvapi.persistance.SessionFactoryProvider;
 import org.apache.commons.lang.RandomStringUtils;
-import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -18,7 +17,7 @@ public final class AuthToken {
     private final static int TIME_TO_LIVE = 60;
     private static Session session = SessionFactoryProvider.getSessionFactory().openSession();
 
-    public final static String getNewToken() {
+    public static String getNewToken() {
 
         String newToken = RandomStringUtils.random(64, true, true);
 
@@ -31,7 +30,7 @@ public final class AuthToken {
         return newToken;
     }
 
-    public final static boolean valid(String token) {
+    public static boolean valid(String token) {
         removeExpiredTokens();
         SQLQuery query = session.createSQLQuery("SELECT TokenId FROM AuthTokens WHERE Token=:token");
         query.setParameter("token", token);
@@ -47,7 +46,7 @@ public final class AuthToken {
         return false;
     }
 
-    final static void removeExpiredTokens() {
+    static void removeExpiredTokens() {
         Transaction tx = session.beginTransaction();
         SQLQuery query = session.createSQLQuery("DELETE FROM AuthTokens WHERE Created < ADDDATE(NOW(), INTERVAL -:ttl MINUTE)");
         query.setParameter("ttl", TIME_TO_LIVE);
