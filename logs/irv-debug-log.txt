@@ -1,0 +1,52 @@
+[2016-Oct-28 11:02:38,318] DEBUG - 1
+[2016-Oct-28 11:03:04,304] DEBUG - 1
+[2016-Oct-28 11:04:27,165] DEBUG - Key: 1, Value: 3
+[2016-Oct-28 11:04:27,166] DEBUG - Key: 2, Value: 4
+[2016-Oct-28 11:04:27,166] DEBUG - Key: 3, Value: 2
+[2016-Oct-28 11:04:27,166] DEBUG - Key: 4, Value: 1
+[2016-Oct-28 11:04:28,261] DEBUG - 1
+[2016-Oct-28 11:16:20,962] DEBUG - Key: 1, Value: 3
+[2016-Oct-28 11:16:20,963] DEBUG - Key: 2, Value: 4
+[2016-Oct-28 11:16:20,963] DEBUG - Key: 3, Value: 2
+[2016-Oct-28 11:16:20,963] DEBUG - Key: 4, Value: 1
+[2016-Oct-28 11:16:22,091] DEBUG - 1
+[2016-Oct-28 11:25:08,080] DEBUG - Key: 1, Value: 3
+[2016-Oct-28 11:25:08,082] DEBUG - Key: 2, Value: 4
+[2016-Oct-28 11:25:08,083] DEBUG - Key: 3, Value: 2
+[2016-Oct-28 11:25:08,083] DEBUG - Key: 4, Value: 1
+[2016-Oct-28 11:25:09,195] DEBUG - 1
+[2016-Oct-28 11:28:52,367] DEBUG - Key: 1, Value: 3
+[2016-Oct-28 11:28:52,368] DEBUG - Key: 2, Value: 4
+[2016-Oct-28 11:28:52,368] DEBUG - Key: 3, Value: 2
+[2016-Oct-28 11:28:52,368] DEBUG - Key: 4, Value: 1
+[2016-Oct-28 11:28:53,499] DEBUG - 1
+[2016-Oct-28 11:29:22,152] DEBUG - Key: 1, Value: 3
+[2016-Oct-28 11:29:22,152] DEBUG - Key: 2, Value: 4
+[2016-Oct-28 11:29:22,152] DEBUG - Key: 3, Value: 2
+[2016-Oct-28 11:29:22,152] DEBUG - Key: 4, Value: 1
+[2016-Oct-28 11:29:23,271] DEBUG - 1
+[2016-Oct-28 11:30:42,298] DEBUG - Key: 1, Value: 3
+[2016-Oct-28 11:30:42,298] DEBUG - Key: 2, Value: 4
+[2016-Oct-28 11:30:42,299] DEBUG - Key: 3, Value: 2
+[2016-Oct-28 11:30:42,299] DEBUG - Key: 4, Value: 1
+[2016-Oct-28 11:30:43,382] DEBUG - 1
+[2016-Oct-28 11:55:58,333] DEBUG - Key: 1, Value: 3
+[2016-Oct-28 11:55:58,334] DEBUG - Key: 2, Value: 4
+[2016-Oct-28 11:55:58,334] DEBUG - Key: 3, Value: 2
+[2016-Oct-28 11:55:58,334] DEBUG - Key: 4, Value: 1
+[2016-Oct-28 11:55:59,420] DEBUG - 1
+[2016-Oct-28 12:15:26,072] DEBUG - Key: 1, Value: 3
+[2016-Oct-28 12:15:26,072] DEBUG - Key: 2, Value: 4
+[2016-Oct-28 12:15:26,072] DEBUG - Key: 3, Value: 2
+[2016-Oct-28 12:15:26,073] DEBUG - Key: 4, Value: 1
+[2016-Oct-28 12:15:27,201] DEBUG - 1
+[2016-Oct-28 12:16:36,376] DEBUG - Key: 1, Value: 3
+[2016-Oct-28 12:16:36,377] DEBUG - Key: 2, Value: 4
+[2016-Oct-28 12:16:36,377] DEBUG - Key: 3, Value: 2
+[2016-Oct-28 12:16:36,377] DEBUG - Key: 4, Value: 1
+[2016-Oct-28 12:16:37,547] DEBUG - 1
+[2016-Oct-28 12:16:56,880] DEBUG - Key: 1, Value: 3
+[2016-Oct-28 12:16:56,880] DEBUG - Key: 2, Value: 4
+[2016-Oct-28 12:16:56,881] DEBUG - Key: 3, Value: 2
+[2016-Oct-28 12:16:56,881] DEBUG - Key: 4, Value: 1
+[2016-Oct-28 12:16:57,966] DEBUG - 1

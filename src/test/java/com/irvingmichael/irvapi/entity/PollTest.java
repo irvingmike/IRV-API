@@ -25,7 +25,6 @@ public class PollTest {
     }
     @Test
     public void countVotes() throws Exception {
-        log.debug("***** Vote Counting *****");
         poll = new TestPollSetup().testPoll;
         poll.countVotes();
         for (Map.Entry<Integer, Integer> entry : poll.getVoteCounts().entrySet()) {
