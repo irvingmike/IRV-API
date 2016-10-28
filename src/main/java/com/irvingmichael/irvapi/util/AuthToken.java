@@ -33,11 +33,18 @@ public final class AuthToken {
 
     public final static boolean valid(String token) {
         removeExpiredTokens();
-        Transaction tx = session.beginTransaction();
-        SQLQuery query = session.createSQLQuery("SELECT * FROM AuthTokens WHERE Token=:token");
+        SQLQuery query = session.createSQLQuery("SELECT TokenId FROM AuthTokens WHERE Token=:token");
         query.setParameter("token", token);
         List list = query.list();
-        return list.size() > 0;
+        if (list.size() >0) {
+            Transaction tx = session.beginTransaction();
+            query = session.createSQLQuery("UPDATE AuthTokens SET Created = NOW() WHERE Token=:token");
+            query.setString("token", token);
+            query.executeUpdate();
+            tx.commit();
+            return true;
+        }
+        return false;
     }
 
     final static void removeExpiredTokens() {
