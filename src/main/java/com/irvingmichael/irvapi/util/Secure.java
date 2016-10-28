@@ -1,4 +1,4 @@
-package com.irvingmichael.irvapi.service;
+package com.irvingmichael.irvapi.util;
 
 import org.apache.catalina.realm.RealmBase;
 

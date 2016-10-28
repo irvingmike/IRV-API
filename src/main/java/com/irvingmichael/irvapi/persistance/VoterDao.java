@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by Aaron Anderson on 10/4/16.
@@ -41,5 +42,18 @@ public class VoterDao<T> extends GenericDao {
                 .add(Restrictions.eq("email", email))
                 .list()
                 .get(0);
+    }
+
+    public Boolean verifyUser(String email, String password) {
+        Transaction tx = session.beginTransaction();
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        SQLQuery sql = session.createSQLQuery("SELECT voterId FROM Voters WHERE email=:email AND securedby=:pass");
+        sql.setString("email", email);
+        sql.setString("pass", password);
+        Object valid = sql.uniqueResult();
+        tx.commit();
+
+        return Objects.nonNull(valid);
+
     }
 }
