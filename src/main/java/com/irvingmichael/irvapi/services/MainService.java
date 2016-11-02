@@ -120,7 +120,7 @@ public class MainService {
         }
     }
 
-    // Just for basic request setup
+    // Just for basic request setup testing
     @GET
     @Produces("application/json")
     public Response get() {
