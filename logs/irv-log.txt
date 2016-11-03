@@ -73,3 +73,112 @@
 [2016-11-03 13:16:50,705] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
 [2016-11-03 13:16:50,853] HHH000399: Using default transaction strategy (direct JDBC transactions)
 [2016-11-03 13:16:50,858] HHH000397: Using ASTQueryTranslatorFactory
+[2016-11-03 15:09:43,548] HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+[2016-11-03 15:09:43,556] HHH000412: Hibernate Core {4.3.11.Final}
+[2016-11-03 15:09:43,557] HHH000206: hibernate.properties not found
+[2016-11-03 15:09:43,559] HHH000021: Bytecode provider name : javassist
+[2016-11-03 15:09:43,576] HHH000043: Configuring from resource: /hibernate.cfg.xml
+[2016-11-03 15:09:43,576] HHH000040: Configuration resource: /hibernate.cfg.xml
+[2016-11-03 15:09:43,639] HHH000041: Configured SessionFactory: null
+[2016-11-03 15:09:43,721] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+[2016-11-03 15:09:43,727] HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/irv_project]
+[2016-11-03 15:09:43,727] HHH000046: Connection properties: {user=root, password=****}
+[2016-11-03 15:09:43,727] HHH000006: Autocommit mode: false
+[2016-11-03 15:09:43,728] HHH000115: Hibernate connection pool size: 20 (min=1)
+[2016-11-03 15:09:44,063] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2016-11-03 15:09:44,185] HHH000399: Using default transaction strategy (direct JDBC transactions)
+[2016-11-03 15:09:44,189] HHH000397: Using ASTQueryTranslatorFactory
+[2016-11-03 15:16:57,275] Key: 1, Value: 3
+[2016-11-03 15:16:57,277] Key: 2, Value: 4
+[2016-11-03 15:16:57,277] Key: 3, Value: 2
+[2016-11-03 15:16:57,277] Key: 4, Value: 1
+[2016-11-03 15:16:57,426] HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+[2016-11-03 15:16:57,431] HHH000412: Hibernate Core {4.3.11.Final}
+[2016-11-03 15:16:57,433] HHH000206: hibernate.properties not found
+[2016-11-03 15:16:57,435] HHH000021: Bytecode provider name : javassist
+[2016-11-03 15:16:57,454] HHH000043: Configuring from resource: /hibernate.cfg.xml
+[2016-11-03 15:16:57,455] HHH000040: Configuration resource: /hibernate.cfg.xml
+[2016-11-03 15:16:57,532] HHH000041: Configured SessionFactory: null
+[2016-11-03 15:16:57,630] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+[2016-11-03 15:16:57,639] HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/irv_project]
+[2016-11-03 15:16:57,640] HHH000046: Connection properties: {user=root, password=****}
+[2016-11-03 15:16:57,640] HHH000006: Autocommit mode: false
+[2016-11-03 15:16:57,641] HHH000115: Hibernate connection pool size: 20 (min=1)
+[2016-11-03 15:16:57,997] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2016-11-03 15:16:58,173] HHH000399: Using default transaction strategy (direct JDBC transactions)
+[2016-11-03 15:16:58,177] HHH000397: Using ASTQueryTranslatorFactory
+[2016-11-03 15:16:58,902] 1
+[2016-11-03 15:17:42,971] HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+[2016-11-03 15:17:42,978] HHH000412: Hibernate Core {4.3.11.Final}
+[2016-11-03 15:17:42,980] HHH000206: hibernate.properties not found
+[2016-11-03 15:17:42,982] HHH000021: Bytecode provider name : javassist
+[2016-11-03 15:17:43,002] HHH000043: Configuring from resource: /hibernate.cfg.xml
+[2016-11-03 15:17:43,002] HHH000040: Configuration resource: /hibernate.cfg.xml
+[2016-11-03 15:17:43,043] HHH000041: Configured SessionFactory: null
+[2016-11-03 15:17:43,121] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+[2016-11-03 15:17:43,124] HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/irv_project]
+[2016-11-03 15:17:43,125] HHH000046: Connection properties: {user=root, password=****}
+[2016-11-03 15:17:43,125] HHH000006: Autocommit mode: false
+[2016-11-03 15:17:43,126] HHH000115: Hibernate connection pool size: 20 (min=1)
+[2016-11-03 15:17:43,348] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2016-11-03 15:17:43,505] HHH000399: Using default transaction strategy (direct JDBC transactions)
+[2016-11-03 15:17:43,510] HHH000397: Using ASTQueryTranslatorFactory
+[2016-11-03 15:26:31,659] Key: 1, Value: 3
+[2016-11-03 15:26:31,660] Key: 2, Value: 4
+[2016-11-03 15:26:31,660] Key: 3, Value: 2
+[2016-11-03 15:26:31,660] Key: 4, Value: 1
+[2016-11-03 15:26:31,817] HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+[2016-11-03 15:26:31,823] HHH000412: Hibernate Core {4.3.11.Final}
+[2016-11-03 15:26:31,825] HHH000206: hibernate.properties not found
+[2016-11-03 15:26:31,826] HHH000021: Bytecode provider name : javassist
+[2016-11-03 15:26:31,842] HHH000043: Configuring from resource: /hibernate.cfg.xml
+[2016-11-03 15:26:31,842] HHH000040: Configuration resource: /hibernate.cfg.xml
+[2016-11-03 15:26:31,917] HHH000041: Configured SessionFactory: null
+[2016-11-03 15:26:31,980] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+[2016-11-03 15:26:31,990] HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/irv_project]
+[2016-11-03 15:26:31,991] HHH000046: Connection properties: {user=root, password=****}
+[2016-11-03 15:26:31,991] HHH000006: Autocommit mode: false
+[2016-11-03 15:26:31,992] HHH000115: Hibernate connection pool size: 20 (min=1)
+[2016-11-03 15:26:32,325] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2016-11-03 15:26:32,501] HHH000399: Using default transaction strategy (direct JDBC transactions)
+[2016-11-03 15:26:32,505] HHH000397: Using ASTQueryTranslatorFactory
+[2016-11-03 15:26:33,220] 1
+[2016-11-03 15:26:57,685] HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+[2016-11-03 15:26:57,694] HHH000412: Hibernate Core {4.3.11.Final}
+[2016-11-03 15:26:57,695] HHH000206: hibernate.properties not found
+[2016-11-03 15:26:57,697] HHH000021: Bytecode provider name : javassist
+[2016-11-03 15:26:57,719] HHH000043: Configuring from resource: /hibernate.cfg.xml
+[2016-11-03 15:26:57,719] HHH000040: Configuration resource: /hibernate.cfg.xml
+[2016-11-03 15:26:57,759] HHH000041: Configured SessionFactory: null
+[2016-11-03 15:26:57,839] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+[2016-11-03 15:26:57,844] HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/irv_project]
+[2016-11-03 15:26:57,844] HHH000046: Connection properties: {user=root, password=****}
+[2016-11-03 15:26:57,844] HHH000006: Autocommit mode: false
+[2016-11-03 15:26:57,846] HHH000115: Hibernate connection pool size: 20 (min=1)
+[2016-11-03 15:26:58,124] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2016-11-03 15:26:58,272] HHH000399: Using default transaction strategy (direct JDBC transactions)
+[2016-11-03 15:26:58,276] HHH000397: Using ASTQueryTranslatorFactory
+[2016-11-03 15:26:58,684] SQL Error: 1364, SQLState: HY000
+[2016-11-03 15:26:58,684] Field 'rank' doesn't have a default value
+[2016-11-03 15:26:58,685] HHH000010: On release of batch it still contained JDBC statements
+[2016-11-03 15:26:58,686] SQL Warning Code: 1364, SQLState: HY000
+[2016-11-03 15:26:58,686] Field 'rank' doesn't have a default value
+[2016-11-03 15:26:58,688] org.hibernate.exception.GenericJDBCException: could not execute statement
+[2016-11-03 15:27:47,157] SQL Error: 1364, SQLState: HY000
+[2016-11-03 15:27:47,158] Field 'rank' doesn't have a default value
+[2016-11-03 15:27:47,158] HHH000010: On release of batch it still contained JDBC statements
+[2016-11-03 15:27:47,159] SQL Warning Code: 1364, SQLState: HY000
+[2016-11-03 15:27:47,159] Field 'rank' doesn't have a default value
+[2016-11-03 15:27:47,159] org.hibernate.exception.GenericJDBCException: could not execute statement
+[2016-11-03 15:30:29,569] SQL Error: 1364, SQLState: HY000
+[2016-11-03 15:30:29,569] Field 'rank' doesn't have a default value
+[2016-11-03 15:30:29,569] HHH000010: On release of batch it still contained JDBC statements
+[2016-11-03 15:30:29,569] SQL Warning Code: 1364, SQLState: HY000
+[2016-11-03 15:30:29,569] Field 'rank' doesn't have a default value
+[2016-11-03 15:30:29,569] org.hibernate.exception.GenericJDBCException: could not execute statement
+[2016-11-03 15:34:15,109] SQL Error: 1364, SQLState: HY000
+[2016-11-03 15:34:15,109] Field 'rank' doesn't have a default value
+[2016-11-03 15:34:15,109] HHH000010: On release of batch it still contained JDBC statements
+[2016-11-03 15:34:15,110] SQL Warning Code: 1364, SQLState: HY000
+[2016-11-03 15:34:15,110] Field 'rank' doesn't have a default value
+[2016-11-03 15:34:15,110] org.hibernate.exception.GenericJDBCException: could not execute statement

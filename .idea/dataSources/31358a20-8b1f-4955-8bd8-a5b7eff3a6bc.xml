@@ -207,23 +207,23 @@ notify</columns>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="60" parent="14" name="rank">
-      <mandatory>1</mandatory>
+    <column id="60" parent="14" name="pollid">
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="61" parent="14" name="votecast">
-      <mandatory>1</mandatory>
-      <data-type>timestamp|0</data-type>
-      <default-expression>CURRENT_TIMESTAMP</default-expression>
+    <column id="61" parent="14" name="voterid">
+      <data-type>int(11)|0</data-type>
     </column>
     <column id="62" parent="14" name="choiceid">
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="63" parent="14" name="pollid">
+    <column id="63" parent="14" name="rank">
+      <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="64" parent="14" name="voterid">
-      <data-type>int(11)|0</data-type>
+    <column id="64" parent="14" name="votecast">
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+      <default-expression>CURRENT_TIMESTAMP</default-expression>
     </column>
     <index id="65" parent="14" name="fk_choice-id_choices_idx">
       <columns>choiceid</columns>
@@ -241,21 +241,21 @@ notify</columns>
       <columns>voteid</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="69" parent="14" name="fk_choiceid_votes">
-      <columns>choiceid</columns>
-      <ref-key>~.Choices.PRIMARY</ref-key>
-      <cascade-update-rule>no_action</cascade-update-rule>
-      <cascade-delete-rule>no_action</cascade-delete-rule>
-    </foreign-key>
-    <foreign-key id="70" parent="14" name="fk_pollid_votes">
+    <foreign-key id="69" parent="14" name="fk_pollid_votes">
       <columns>pollid</columns>
       <ref-key>~.Polls.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="71" parent="14" name="fk_voterid_votes">
+    <foreign-key id="70" parent="14" name="fk_voterid_votes">
       <columns>voterid</columns>
       <ref-key>~.Voters.PRIMARY</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="71" parent="14" name="fk_choiceid_votes">
+      <columns>choiceid</columns>
+      <ref-key>~.Choices.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>

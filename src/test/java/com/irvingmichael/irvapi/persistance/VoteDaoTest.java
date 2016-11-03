@@ -10,6 +10,18 @@ import static org.junit.Assert.*;
  */
 public class VoteDaoTest {
     @Test
+    public void recordRankingsInDatabase() throws Exception {
+        VoteDao voteDao = new VoteDao();
+        Vote testVote = new Vote(11, 1);
+        testVote.getVoteRankings().put(1,1);
+        testVote.getVoteRankings().put(2,2);
+        testVote.getVoteRankings().put(3,4);
+        testVote.getVoteRankings().put(4,4);
+        testVote.setCurrentRankings(testVote.getVoteRankings());
+        assertTrue(voteDao.recordRankingsInDatabase(testVote));
+    }
+
+    @Test
     public void getVoteByVoterIdPollId() throws Exception {
         VoteDao voteDao = new VoteDao();
         Vote testVote = voteDao.getVoteByVoterIdPollId(2,1);

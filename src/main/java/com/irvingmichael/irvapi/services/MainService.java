@@ -3,9 +3,11 @@ package com.irvingmichael.irvapi.services;
 import com.google.gson.Gson;
 import com.irvingmichael.irvapi.entity.Choice;
 import com.irvingmichael.irvapi.entity.Poll;
+import com.irvingmichael.irvapi.entity.Vote;
 import com.irvingmichael.irvapi.entity.Voter;
 import com.irvingmichael.irvapi.persistance.ChoiceDao;
 import com.irvingmichael.irvapi.persistance.PollDao;
+import com.irvingmichael.irvapi.persistance.VoteDao;
 import com.irvingmichael.irvapi.persistance.VoterDao;
 import com.irvingmichael.irvapi.util.Secure;
 import com.irvingmichael.irvapi.util.AuthToken;
@@ -227,6 +229,42 @@ public class MainService {
             } else {
                 jsonToReturn = " { \"Bad poll code supplied\" }";
                 status = Status.BAD_REQUEST;
+            }
+        } else {
+            status = Status.UNAUTHORIZED;
+            jsonToReturn = "{ \"result\":\"Bad token supplied\" }";
+        }
+        return Response.status(status.getStatusCode()).entity(jsonToReturn).build();
+    }
+
+    /**
+     * Cast a vote for a single voter for a specific poll
+     * @param authtoken Token required to access the API
+     * @param jsonToProcess Vote to cast encoded as JSON
+     * @return JSON encoded message of result
+     */
+    @POST
+    @Path("/castVote")
+    @Consumes("application/json")
+    @Produces("application/json")
+    public Response castVote(@QueryParam("authToken") String authtoken, String jsonToProcess) {
+
+        String jsonToReturn = "Help! Help! I need an admin! So I can show them in the logs where the bad code touched me!";
+        Status status = Status.BAD_REQUEST;
+
+        if (AuthToken.valid(authtoken)) {
+            Gson gson = new Gson();
+            VoteDao voteDao = new VoteDao();
+
+            Vote vote = gson.fromJson(jsonToProcess, Vote.class);
+            vote.setVoteId(voteDao.create(vote));
+
+            if (voteDao.recordRankingsInDatabase(vote)) {
+                jsonToReturn = "{ \"result\":\"success\" }";
+                status = Status.OK;
+            } else {
+                jsonToReturn = "{ \"result\":\"There was an error casting your vote.\" }";
+                status = Status.INTERNAL_SERVER_ERROR;
             }
         } else {
             status = Status.UNAUTHORIZED;
