@@ -1,3 +1,14 @@
+CREATE TABLE Voters
+(
+    voterid INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    firstname VARCHAR(45),
+    lastname VARCHAR(100),
+    email VARCHAR(254) NOT NULL,
+    securedby VARCHAR(64)
+);
+CREATE UNIQUE INDEX email_UNIQUE ON Voters (email);
+CREATE INDEX index_email ON Voters (email);
+
 CREATE TABLE AccessRoles
 (
     email VARCHAR(254) NOT NULL,
@@ -6,15 +17,7 @@ CREATE TABLE AccessRoles
     CONSTRAINT fk_accessroles_voteremail FOREIGN KEY (email) REFERENCES Voters (email)
 );
 CREATE INDEX fk_accessroles_voteremail_idx ON AccessRoles (email);
-CREATE TABLE Choices
-(
-    choiceid INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    name VARCHAR(45) NOT NULL,
-    description TEXT,
-    pollid INT(11),
-    CONSTRAINT fk_pollid_choices FOREIGN KEY (pollid) REFERENCES Polls (pollid)
-);
-CREATE INDEX fk_pollid_choices_idx ON Choices (pollid);
+
 CREATE TABLE Polls
 (
     pollid INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -30,16 +33,17 @@ CREATE TABLE Polls
     CONSTRAINT fk_voterid_polls FOREIGN KEY (creator) REFERENCES Voters (voterid)
 );
 CREATE INDEX fk_voterid_polls_idx ON Polls (creator);
-CREATE TABLE Voters
+
+CREATE TABLE Choices
 (
-    voterid INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    firstname VARCHAR(45),
-    lastname VARCHAR(100),
-    email VARCHAR(254) NOT NULL,
-    securedby VARCHAR(64)
+    choiceid INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    name VARCHAR(45) NOT NULL,
+    description TEXT,
+    pollid INT(11),
+    CONSTRAINT fk_pollid_choices FOREIGN KEY (pollid) REFERENCES Polls (pollid)
 );
-CREATE UNIQUE INDEX email_UNIQUE ON Voters (email);
-CREATE INDEX index_email ON Voters (email);
+CREATE INDEX fk_pollid_choices_idx ON Choices (pollid);
+
 CREATE TABLE VotersPolls
 (
     voterid INT(11) NOT NULL,
@@ -51,6 +55,7 @@ CREATE TABLE VotersPolls
 );
 CREATE INDEX fk_pollid_polls_idx ON VotersPolls (pollid);
 CREATE INDEX fk_voterid_voters_idx ON VotersPolls (voterid);
+
 CREATE TABLE Votes
 (
     voteid INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -66,6 +71,7 @@ CREATE TABLE Votes
 CREATE INDEX `fk_choice-id_choices_idx` ON Votes (choiceid);
 CREATE INDEX `fk_poll-id_choices_idx` ON Votes (pollid);
 CREATE INDEX `fk_voter-id_choices_idx` ON Votes (voterid);
+
 CREATE TABLE AuthTokens
 (
     Token CHAR(64) NOT NULL,
