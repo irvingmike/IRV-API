@@ -40,6 +40,13 @@ public class Choice {
     public Choice(String name) { this(); this.setName(name); }
 
     /**
+     * This constructor is for testing only. Id should always be from database.
+     * @param id
+     * @param name
+     */
+    Choice(int id, String name) {this(name); this.setId(id); }
+
+    /**
      * Constructor for Choice class
      * @param name Name of choice
      * @param pollId Id for poll that the choice is used in

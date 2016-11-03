@@ -1,7 +1,11 @@
 package com.irvingmichael.irvapi.services;
 
 import com.google.gson.Gson;
+import com.irvingmichael.irvapi.entity.Choice;
+import com.irvingmichael.irvapi.entity.Poll;
+import com.irvingmichael.irvapi.entity.PollStatus;
 import com.irvingmichael.irvapi.entity.Voter;
+import com.irvingmichael.irvapi.persistance.ChoiceDao;
 import com.irvingmichael.irvapi.persistance.PollDao;
 import com.irvingmichael.irvapi.persistance.VoterDao;
 import com.irvingmichael.irvapi.util.Secure;
@@ -10,6 +14,7 @@ import org.apache.log4j.Logger;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 /**
  * Main service class for Instant Runoff Voting API
@@ -71,6 +76,42 @@ public class MainService {
         } else {
             return Response.status(400).entity("{ \"result\":\"Bad token supplied\" }").build();
         }
+    }
+
+    /**
+     * Create new poll and choices, poll and choices must be supplied as a JSON in the body with authtoken as a param.
+     * @param authtoken Token required to access the API
+     * @param newPollJson JSON from body of request
+     * @return Response with new poll as json
+     */
+    @POST
+    @Path("/createNewPoll")
+    @Consumes("application/json")
+    public Response createNewPoll(@QueryParam("authtoken") String authtoken,
+                                  String newPollJson) {
+        String jsonToReturn = "Help! Help! I need an admin! So I can show them in the logs where the bad code touched me!";
+        if (AuthToken.valid(authtoken)) {
+            Gson gson = new Gson();
+            PollDao pollDao = new PollDao();
+            ChoiceDao choiceDao = new ChoiceDao();
+
+            Poll poll = gson.fromJson(newPollJson, Poll.class);
+            poll.setAvailable(false);
+            poll.setPollid(pollDao.create(poll));
+
+            List<Choice> choices = poll.getChoices();
+            for (Choice choice : choices) {
+                choice.setPollId(poll.getPollid());
+                choiceDao.create(choice);
+            }
+
+            jsonToReturn = gson.toJson(poll);
+
+        } else {
+            jsonToReturn = "{ \"result\":\"Bad token supplied\" }";
+        }
+
+        return Response.status(200).entity(jsonToReturn).build();
     }
 
     /**

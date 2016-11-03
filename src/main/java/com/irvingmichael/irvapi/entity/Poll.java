@@ -1,5 +1,6 @@
 package com.irvingmichael.irvapi.entity;
 
+import com.irvingmichael.irvapi.persistance.PollDao;
 import org.apache.log4j.Logger;
 
 import java.util.*;
@@ -52,9 +53,9 @@ public class Poll {
     private PollStatus status;
 
     /**
-     * Empty constructor
+     * Empty constructor, build code for poll. Code can be replaced for existing polls.
      */
-    public Poll() {}
+    public Poll() { this.pollCode = RandomStringUtils.random(8, true, true); status = PollStatus.INITIAL; }
 
     /**
      * Main use constructor for a Poll
@@ -152,14 +153,9 @@ public class Poll {
         this.status = status;
     }
 
-    /**
-     * Generates and sets a new poll code for Poll if it doesn't exist.
-     * @return Pollcode for registering a voter with a poll
-     */
-    String getPollCode() {
-        if (pollCode.length() != 8) {
-            pollCode = RandomStringUtils.random(8, true, true);
-        }
+    public void setPollCode(String pollCode) { this.pollCode = pollCode; }
+
+    public String getPollCode() {
         return pollCode;
     }
 
@@ -191,7 +187,7 @@ public class Poll {
         }
 
         while (winner == -1) {
-            resetChoiceCounts();
+            setVotesCountsToZero();
             countVotes();
             if (!winnerExists()) {
                 int choiceToRemove = getLowestVoteGetter();

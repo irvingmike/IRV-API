@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
  */
 public class PollTest {
 
-    private static Poll poll;
+    private static Poll poll = new TestPollSetup().testPoll;;
     private final Logger log = Logger.getLogger("debugLogger");
 
     @BeforeClass
@@ -25,7 +25,6 @@ public class PollTest {
     }
     @Test
     public void countVotes() throws Exception {
-        poll = new TestPollSetup().testPoll;
         poll.countVotes();
         for (Map.Entry<Integer, Integer> entry : poll.getVoteCounts().entrySet()) {
             log.debug("Key: " + entry.getKey() + ", Value: " + entry.getValue());
@@ -47,7 +46,7 @@ public class PollTest {
     }
     @Test
     public void resetChoiceCounts() throws Exception {
-        poll.resetChoiceCounts();
+        poll.setVotesCountsToZero();
         for (Map.Entry<Integer, Integer> entry : poll.getVoteCounts().entrySet()) {
             assertEquals("Vote count not se to zero", (Integer) 0, entry.getValue());
         }
@@ -148,12 +147,8 @@ public class PollTest {
 
     @Test
     public void getPollCode() throws Exception {
-        String pollCode = poll.getPollCode();
-        String pollCodeVerify = poll.getPollCode();
-
-        assertEquals("Poll code generated at incorrect size", 8, pollCode.length());
-        assertTrue(pollCode == pollCodeVerify);
-
+        Poll testPoll = new Poll();
+        assertEquals("Poll code generated at incorrect size", 8, testPoll.getPollCode().length());
     }
 
     @Test
