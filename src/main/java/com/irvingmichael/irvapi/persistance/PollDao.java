@@ -1,6 +1,7 @@
 package com.irvingmichael.irvapi.persistance;
 
 import com.irvingmichael.irvapi.entity.Poll;
+import com.irvingmichael.irvapi.entity.PollStatus;
 import org.apache.log4j.Logger;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -10,6 +11,9 @@ import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 import java.util.Objects;
+
+import static com.irvingmichael.irvapi.entity.PollStatus.INITIAL;
+import static com.irvingmichael.irvapi.entity.PollStatus.OPEN;
 
 /**
  * Created by Aaron Anderson on 10/9/16.
@@ -55,6 +59,40 @@ public class PollDao extends GenericDao {
             return true;
         } else {
             return false;
+        }
+    }
+
+    public void changePollStatus(PollStatus statusChoice, int pollid) {
+
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+
+        List<Poll> polls = session.createCriteria(Poll.class)
+                    .add(Restrictions.eq("pollid", pollid))
+                    .list();
+        Poll poll = polls.get(0);
+
+        switch(statusChoice) {
+            case OPEN:
+                poll.openPoll();
+
+                session.update(poll);
+
+                tx.commit();
+
+                session.close();
+                break;
+
+            case CLOSED:
+                poll.closePoll();
+
+                session.update(poll);
+
+                tx.commit();
+
+                session.close();
+                break;
+
         }
     }
 }

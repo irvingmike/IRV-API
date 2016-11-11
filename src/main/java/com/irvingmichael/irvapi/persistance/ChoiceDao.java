@@ -33,4 +33,18 @@ public class ChoiceDao extends GenericDao {
         session.close();
         return choices;
     }
+
+    /**
+     * Returns the choice winner from the database
+     * @param pollid the poll's id
+     * @return the winner
+     */
+    public Choice getChoiceWinner(int pollid) {
+        Choice choice;
+
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        choice = (Choice) session.createSQLQuery("SELECT name FROM Choices JOIN Polls ON pollid = " + pollid + " WHERE winner = 0");
+
+        return choice;
+    }
 }

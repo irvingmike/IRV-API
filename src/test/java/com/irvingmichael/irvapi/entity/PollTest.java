@@ -177,4 +177,14 @@ public class PollTest {
 
     }
 
+    @Test
+    public void pollTesting() {
+        //assertNull(poll.getLowestVoteGetter());
+        //assertNull(poll.removeChoiceFromContention(poll.getLowestVoteGetter(), poll.getVotes()).get(0).getVoteRankings());
+        /*for (Vote votes : poll.removeChoiceFromContention(poll.getLowestVoteGetter(), poll.getVotes())) {
+            System.out.println(votes.getVoteId());
+        }*/
+        //assertNull(poll.openPoll());
+    }
+
 }

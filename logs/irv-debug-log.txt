@@ -73,3 +73,11 @@
 [2016-Nov-03 15:26:31,660] DEBUG - Key: 3, Value: 2
 [2016-Nov-03 15:26:31,660] DEBUG - Key: 4, Value: 1
 [2016-Nov-03 15:26:33,220] DEBUG - 1
+[2016-Nov-10 13:41:57,217] INFO - Poll id: 1
+Status changed to: OPEN
+
+[2016-Nov-10 13:52:35,410] INFO - Poll id: 1
+Status changed to: OPEN
+[2016-Nov-10 13:54:51,670] INFO - Poll id: 1
+Status changed to: OPEN
+[2016-Nov-11 16:11:57,028] INFO - Total row effected: 1Poll id: 1Status changed to: OPEN

@@ -12,7 +12,7 @@
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="connection.url">jdbc:mysql://localhost:3306/irv_project</property>
     <property name="connection.username">root</property>
-    <property name="connection.password">password</property>
+    <property name="connection.password">student</property>
 
     <!-- SQL dialect -->
     <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
@@ -21,11 +21,11 @@
     <property name="show_sql">true</property>
 
     <!-- List the annotated entity class/es -->
-    <mapping class="com.irvingmichael.irv.entity.Choice"/>
-    <mapping class="com.irvingmichael.irv.entity.Vote"/>
-    <mapping class="com.irvingmichael.irv.entity.Voter"/>
-    <mapping class="com.irvingmichael.irv.entity.Poll"/>
-    <mapping class="com.irvingmichael.irv.entity.AccessRole" />
+    <mapping class="com.irvingmichael.irvapi.entity.Choice"/>
+    <mapping class="com.irvingmichael.irvapi.entity.Vote"/>
+    <mapping class="com.irvingmichael.irvapi.entity.Voter"/>
+    <mapping class="com.irvingmichael.irvapi.entity.Poll"/>
+    <!-- <mapping class="com.irvingmichael.irvapi.entity.AccessRole" /> -->
 
   </session-factory>
 

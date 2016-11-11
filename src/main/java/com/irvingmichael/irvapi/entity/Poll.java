@@ -144,7 +144,7 @@ public class Poll {
         this.winner = winner;
     }
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     public PollStatus getStatus() {
         return status;
     }
@@ -160,7 +160,7 @@ public class Poll {
     }
 
     /**
-     * Determines the win threshold based on the number of choice in a the poll
+     * Determines the win threshold based on the number of choice in the poll
      * @return Number of votes required to win the poll
      */
     int getWinThreshold() {
@@ -180,20 +180,33 @@ public class Poll {
      */
     void determineWinner() {
 
-        status = PollStatus.CLOSED;
+        status = PollStatus.COMPLETED;
 
         for (Vote vote : votes) {
             vote.setCurrentRankings(vote.getVoteRankings());
         }
 
         while (winner == -1) {
-            setVotesCountsToZero();
+            //setVotesCountsToZero();
             countVotes();
             if (!winnerExists()) {
                 int choiceToRemove = getLowestVoteGetter();
                 votes = removeChoiceFromContention(choiceToRemove, votes);
             }
         }
+    }
+    /**
+     *  Opens Poll
+     */
+    public void openPoll() {
+        this.status = PollStatus.OPEN;
+    }
+    /**
+     *  Closes Poll
+     */
+    public void closePoll() {
+
+        this.status = PollStatus.CLOSED;
     }
 
     /**
@@ -310,5 +323,7 @@ public class Poll {
         }
         return "Bad ID supplied";
     }
+
+
 
 }
