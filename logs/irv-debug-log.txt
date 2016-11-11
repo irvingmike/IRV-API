@@ -73,6 +73,7 @@
 [2016-Nov-03 15:26:31,660] DEBUG - Key: 3, Value: 2
 [2016-Nov-03 15:26:31,660] DEBUG - Key: 4, Value: 1
 [2016-Nov-03 15:26:33,220] DEBUG - 1
+<<<<<<< HEAD
 [2016-Nov-10 13:41:57,217] INFO - Poll id: 1
 Status changed to: OPEN
 
@@ -81,3 +82,40 @@ Status changed to: OPEN
 [2016-Nov-10 13:54:51,670] INFO - Poll id: 1
 Status changed to: OPEN
 [2016-Nov-11 16:11:57,028] INFO - Total row effected: 1Poll id: 1Status changed to: OPEN
+=======
+[2016-Nov-11 15:28:04,243] DEBUG - Key: 1, Value: 3
+[2016-Nov-11 15:28:04,246] DEBUG - Key: 2, Value: 4
+[2016-Nov-11 15:28:04,247] DEBUG - Key: 3, Value: 2
+[2016-Nov-11 15:28:04,247] DEBUG - Key: 4, Value: 1
+[2016-Nov-11 15:28:05,596] DEBUG - 2
+[2016-Nov-11 15:29:08,111] DEBUG - Key: 1, Value: 3
+[2016-Nov-11 15:29:08,112] DEBUG - Key: 2, Value: 4
+[2016-Nov-11 15:29:08,112] DEBUG - Key: 3, Value: 2
+[2016-Nov-11 15:29:08,112] DEBUG - Key: 4, Value: 1
+[2016-Nov-11 15:29:09,528] DEBUG - 2
+[2016-Nov-11 15:29:52,146] DEBUG - Key: 1, Value: 3
+[2016-Nov-11 15:29:52,147] DEBUG - Key: 2, Value: 4
+[2016-Nov-11 15:29:52,147] DEBUG - Key: 3, Value: 2
+[2016-Nov-11 15:29:52,147] DEBUG - Key: 4, Value: 1
+[2016-Nov-11 15:29:53,291] DEBUG - 2
+[2016-Nov-11 15:30:01,837] DEBUG - Key: 1, Value: 3
+[2016-Nov-11 15:30:01,837] DEBUG - Key: 2, Value: 4
+[2016-Nov-11 15:30:01,838] DEBUG - Key: 3, Value: 2
+[2016-Nov-11 15:30:01,838] DEBUG - Key: 4, Value: 1
+[2016-Nov-11 15:30:02,829] DEBUG - 2
+[2016-Nov-11 15:32:00,335] DEBUG - Key: 1, Value: 3
+[2016-Nov-11 15:32:00,336] DEBUG - Key: 2, Value: 4
+[2016-Nov-11 15:32:00,336] DEBUG - Key: 3, Value: 2
+[2016-Nov-11 15:32:00,336] DEBUG - Key: 4, Value: 1
+[2016-Nov-11 15:32:01,490] DEBUG - 2
+[2016-Nov-11 15:32:36,670] DEBUG - Key: 1, Value: 3
+[2016-Nov-11 15:32:36,671] DEBUG - Key: 2, Value: 4
+[2016-Nov-11 15:32:36,671] DEBUG - Key: 3, Value: 2
+[2016-Nov-11 15:32:36,671] DEBUG - Key: 4, Value: 1
+[2016-Nov-11 15:32:37,817] DEBUG - 2
+[2016-Nov-11 15:40:35,814] DEBUG - Key: 1, Value: 3
+[2016-Nov-11 15:40:35,815] DEBUG - Key: 2, Value: 4
+[2016-Nov-11 15:40:35,815] DEBUG - Key: 3, Value: 2
+[2016-Nov-11 15:40:35,816] DEBUG - Key: 4, Value: 1
+[2016-Nov-11 15:40:36,972] DEBUG - 2
+>>>>>>> 03faffb3fa014e775d12c0b443de534aadd19344

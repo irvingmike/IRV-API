@@ -83,19 +83,18 @@ public class MainService {
 
     /**
      * Add a new user to the database
-     * @param authtoken Token required to access the API
      * @param firstname New voter first name
      * @param lastname New voter last name
      * @param email New voter email
      * @param password New voter password
+     * @param jsonVoter JSON text from the body of the request
      * @return Response sent requestor as JSON
      */
     @POST
     @Path("/createNewVoter")
     @Consumes("application/json")
     @Produces("application/json")
-    public Response createNewVoter(@QueryParam("authtoken") String authtoken,
-                                   @QueryParam("firstname") String firstname,
+    public Response createNewVoter(@QueryParam("firstname") String firstname,
                                    @QueryParam("lastname") String lastname,
                                    @QueryParam("email") String email,
                                    @QueryParam("password") String password,
@@ -103,28 +102,21 @@ public class MainService {
         String jsonToReturn = "Help! Help! I need an admin! So I can show them in the logs where the bad code touched me!";
         Status status = Status.BAD_REQUEST;
 
-        if (AuthToken.valid(authtoken)) {
 
-            Gson gson = new Gson();
-            Voter newVoter = new Voter(firstname, lastname, email);
+        Gson gson = new Gson();
+        Voter newVoter = new Voter(firstname, lastname, email);
 
-            if(!jsonVoter.isEmpty()) {
-                newVoter = gson.fromJson(jsonVoter, Voter.class);
-            }
-
-            VoterDao voterDao = new VoterDao();
-            int voterId = voterDao.create(newVoter);
-            voterDao.setPasswordInDB(voterId, Secure.hash(password));
-
-            jsonToReturn = "{ \"voterId\": \"" + voterId + "\" }";
-            status = Status.OK;
-
-        } else {
-
-            status = Status.UNAUTHORIZED;
-            jsonToReturn = "{ \"result\":\"Bad token supplied\" }";
-
+        if(!jsonVoter.isEmpty()) {
+            newVoter = gson.fromJson(jsonVoter, Voter.class);
         }
+
+        VoterDao voterDao = new VoterDao();
+        int voterId = voterDao.create(newVoter);
+        voterDao.setPasswordInDB(voterId, Secure.hash(password));
+
+        jsonToReturn = "{ \"voterId\": \"" + voterId + "\" }";
+        status = Status.OK;
+
         return Response.status(status.getStatusCode()).entity(jsonToReturn).build();
     }
 
