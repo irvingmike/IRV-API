@@ -83,11 +83,11 @@ public class MainService {
 
     /**
      * Add a new user to the database
-     * @param authtoken Token required to access the API
      * @param firstname New voter first name
      * @param lastname New voter last name
      * @param email New voter email
      * @param password New voter password
+     * @param jsonVoter JSON text from the body of the request
      * @return Response sent requestor as JSON
      */
     @POST
