@@ -144,6 +144,7 @@ public class Poll {
         this.winner = winner;
     }
 
+
     @Enumerated(EnumType.ORDINAL)
     public PollStatus getStatus() {
         return status;
