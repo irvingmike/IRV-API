@@ -17,6 +17,10 @@ public final class AuthToken {
     private final static int TIME_TO_LIVE = 60;
     private static Session session = SessionFactoryProvider.getSessionFactory().openSession();
 
+    /**
+     * Generates a new authtoken and stores it in the database
+     * @return Generated AuthToken
+     */
     public static String getNewToken() {
 
         String newToken = RandomStringUtils.random(64, true, true);
@@ -30,6 +34,11 @@ public final class AuthToken {
         return newToken;
     }
 
+    /**
+     * Removes all expired tokens from the database, then queries the database for suppllied token
+     * @param token AuthToken to validate in the database
+     * @return True if AuthToken is in the database
+     */
     public static boolean valid(String token) {
         removeExpiredTokens();
         SQLQuery query = session.createSQLQuery("SELECT TokenId FROM AuthTokens WHERE Token=:token");
@@ -46,6 +55,9 @@ public final class AuthToken {
         return false;
     }
 
+    /**
+     * Removes all tokens older the TIME_TO_LIVE
+     */
     static void removeExpiredTokens() {
         Transaction tx = session.beginTransaction();
         SQLQuery query = session.createSQLQuery("DELETE FROM AuthTokens WHERE Created < ADDDATE(NOW(), INTERVAL -:ttl MINUTE)");

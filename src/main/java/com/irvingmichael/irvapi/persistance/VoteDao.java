@@ -19,10 +19,19 @@ public class VoteDao extends GenericDao {
     private final Logger log = Logger.getLogger("debugLogger");
     Session session = SessionFactoryProvider.getSessionFactory().openSession();
 
+    /**
+     * Empty constructor
+     */
     public VoteDao() {
         super(Vote.class);
     }
 
+    /**
+     * Get a vote for a specified user in a specified poll
+     * @param voterId Id of voter to get vote for
+     * @param pollId Id of poll the vote is in
+     * @return Specified vote
+     */
     public Vote getVoteByVoterIdPollId(int voterId, int pollId) {
         Vote vote = new Vote(voterId, pollId);
 
@@ -44,6 +53,11 @@ public class VoteDao extends GenericDao {
         return vote;
     }
 
+    /**
+     * Store supplied vote in the database
+     * @param vote Vote to store in database
+     * @return True if vote is stored in database
+     */
     public Boolean recordRankingsInDatabase(Vote vote) {
         Boolean success = false;
         try {
