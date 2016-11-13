@@ -71,87 +71,197 @@ public class Poll {
         status = PollStatus.INITIAL;
     }
 
+    /**
+     * Returns poll's id
+     *
+     * @return  the id of the poll
+     */
     public int getPollid() {
         return pollid;
     }
 
+    /**
+     * Sets the id of the poll
+     *
+     * @param pollid    the poll id
+     */
     public void setPollid(int pollid) {
         this.pollid = pollid;
     }
 
+    /**
+     * Returns poll title
+     *
+     * @return  the title of the poll
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * Sets the title of the poll
+     *
+     * @param title the title
+     */
     public void setTitle(String title) {
         this.title = title;
     }
 
+    /**
+     * Returns poll description
+     *
+     * @return  the description of the poll
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Sets the description of the poll
+     *
+     * @param description   the description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * Returns a boolean
+     *
+     * @return  a boolean
+     */
     public Boolean getAvailable() {
         return available;
     }
 
+    /**
+     * Sets a boolean
+     *
+     * @param available a boolean
+     */
     public void setAvailable(Boolean available) {
         this.available = available;
     }
 
+    /**
+     * Returns poll creator
+     *
+     * @return  the creator of the poll
+     */
     public int getCreator() {
         return creator;
     }
 
+    /**
+     * Sets the creator of the poll
+     *
+     * @param creator   the creator
+     */
     public void setCreator(int creator) {
         this.creator = creator;
     }
 
+    /**
+     * Returns a list of choices
+     *
+     * @return  the choices in poll
+     */
     public ArrayList<Choice> getChoices() {
         return choices;
     }
 
+    /**
+     * Sets the list of choices in the poll
+     *
+     * @param choices   the list of choices
+     */
     public void setChoices(ArrayList<Choice> choices) {
         this.choices = choices;
     }
 
+    /**
+     * Returns a list of votes
+     *
+     * @return  the votes in poll
+     */
     public ArrayList<Vote> getVotes() { return votes; }
 
+    /**
+     * Sets a list of votes in the poll
+     *
+     * @param votes the list of votes
+     */
     public void setVotes(ArrayList<Vote> votes) {
         this.votes = votes;
     }
 
+    /**
+     * Returns a total count of votes
+     *
+     * @return  total count
+     */
     public HashMap<Integer, Integer> getVoteCounts() {
         return voteCounts;
     }
 
+    /**
+     * Sets total counts of vote
+     *
+     * @param voteCounts    the total counts of vote
+     */
     public void setVoteCounts(HashMap<Integer, Integer> voteCounts) {
         this.voteCounts = voteCounts;
     }
 
+    /**
+     * Returns a winner
+     *
+     * @return  the winner of the poll
+     */
     public int getWinner() {
         return winner;
     }
 
+    /**
+     * Sets the winner of the poll
+     *
+     * @param winner    winner of poll
+     */
     private  void setWinner(int winner) {
         this.winner = winner;
     }
 
+    /**
+     * Returns a poll status
+     *
+     * @return  the status of the poll
+     */
     @Enumerated(EnumType.ORDINAL)
     public PollStatus getStatus() {
         return status;
     }
 
+    /**
+     * Sets the status of the poll
+     *
+     * @param status    the poll status
+     */
     public void setStatus(PollStatus status) {
         this.status = status;
     }
 
+    /**
+     * Sets the code of the poll
+     *
+     * @param pollCode the code of the poll
+     */
     public void setPollCode(String pollCode) { this.pollCode = pollCode; }
 
+    /**
+     * Returns a poll code
+     *
+     * @return  the code of the poll
+     */
     public String getPollCode() {
         return pollCode;
     }
@@ -207,7 +317,7 @@ public class Poll {
      */
     public void closePoll() { this.status = PollStatus.CLOSED; }
     /**
-     *  Completes Poll
+     *  Completes Poll and determines the winner
      */
     public void completePoll() {
 
@@ -298,19 +408,6 @@ public class Poll {
             index++;
         }
         return idToReturn;
-    }
-
-    HashMap<Integer, Integer> removeDuplicates(HashMap<Integer, Integer> voteCounts) {
-
-        final Set<Integer> setToReturn = new HashSet<>();
-
-        for (Map.Entry<Integer, Integer> entry : voteCounts.entrySet()) {
-
-            if (!setToReturn.add(entry.getValue())) {
-                voteCounts.remove(entry.getKey());
-            }
-        }
-        return voteCounts;
     }
 
     /**

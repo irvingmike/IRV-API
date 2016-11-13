@@ -63,6 +63,12 @@ public class PollDao extends GenericDao {
         }
     }
 
+    /**
+     * Changes the poll status
+     *
+     * @param statusChoice  the selected status
+     * @param pollid        the selected poll id
+     */
     public void changePollStatus(PollStatus statusChoice, int pollid) {
 
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
@@ -96,6 +102,13 @@ public class PollDao extends GenericDao {
         }
     }
 
+    /**
+     * Changes the winner of the poll
+     *
+     * @param status    poll status
+     * @param pollid    poll id
+     * @param winner    choice's id
+     */
     public void changeWinner(PollStatus status, int pollid, int winner) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
