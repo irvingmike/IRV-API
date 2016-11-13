@@ -9,7 +9,6 @@ import org.apache.commons.lang.RandomStringUtils;
 
 import javax.persistence.*;
 
-
 /**
  * Poll class that holds the information for a specific poll and performs most of the functionality of a poll
  *
@@ -120,9 +119,7 @@ public class Poll {
         this.choices = choices;
     }
 
-    public ArrayList<Vote> getVotes() {
-        return votes;
-    }
+    public ArrayList<Vote> getVotes() { return votes; }
 
     public void setVotes(ArrayList<Vote> votes) {
         this.votes = votes;
@@ -143,7 +140,6 @@ public class Poll {
     private  void setWinner(int winner) {
         this.winner = winner;
     }
-
 
     @Enumerated(EnumType.ORDINAL)
     public PollStatus getStatus() {
@@ -181,33 +177,60 @@ public class Poll {
      */
     void determineWinner() {
 
-        status = PollStatus.COMPLETED;
+        //  TODO: Modify codes to remove multiple choices with the same amount of votes and are the lowest.
 
         for (Vote vote : votes) {
             vote.setCurrentRankings(vote.getVoteRankings());
         }
 
         while (winner == -1) {
-            //setVotesCountsToZero();
             countVotes();
             if (!winnerExists()) {
                 int choiceToRemove = getLowestVoteGetter();
                 votes = removeChoiceFromContention(choiceToRemove, votes);
+            } else {
+
+                break;
             }
         }
     }
+
     /**
      *  Opens Poll
      */
     public void openPoll() {
         this.status = PollStatus.OPEN;
     }
+
     /**
      *  Closes Poll
      */
-    public void closePoll() {
+    public void closePoll() { this.status = PollStatus.CLOSED; }
+    /**
+     *  Completes Poll
+     */
+    public void completePoll() {
 
-        this.status = PollStatus.CLOSED;
+        this.status = PollStatus.COMPLETED;
+        determineWinner();
+    }
+
+    /**
+     *  Finalizes Winner
+     *
+     *  @param  winner  the winner's id
+     *  @param  status  the poll status
+     */
+    public void finalizeWinner(PollStatus status, int winner) {
+
+        int winnerHolder = -1;
+
+        if (status == PollStatus.COMPLETED &&  status == getStatus()) {
+
+            winnerHolder = winner;
+        }
+
+        setWinner(winnerHolder);
     }
 
     /**
@@ -217,6 +240,7 @@ public class Poll {
         setVotesCountsToZero();
         for (Vote vote : votes) {
             int currentChoice = findHighestRankedChoice(vote);
+
             voteCounts.put(currentChoice, voteCounts.get(currentChoice) + 1);
         }
     }
@@ -260,14 +284,33 @@ public class Poll {
      */
     int getLowestVoteGetter() {
         int idToReturn = -1;
+        int index = 0;
+        List<Integer> idsToReturn = null;
+
         int lowestVoteCount = Integer.MAX_VALUE;
+
         for (Map.Entry<Integer, Integer> entry : voteCounts.entrySet()) {
+
             if (entry.getValue() < lowestVoteCount) {
                 lowestVoteCount = entry.getValue();
                 idToReturn = entry.getKey();
             }
+            index++;
         }
         return idToReturn;
+    }
+
+    HashMap<Integer, Integer> removeDuplicates(HashMap<Integer, Integer> voteCounts) {
+
+        final Set<Integer> setToReturn = new HashSet<>();
+
+        for (Map.Entry<Integer, Integer> entry : voteCounts.entrySet()) {
+
+            if (!setToReturn.add(entry.getValue())) {
+                voteCounts.remove(entry.getKey());
+            }
+        }
+        return voteCounts;
     }
 
     /**

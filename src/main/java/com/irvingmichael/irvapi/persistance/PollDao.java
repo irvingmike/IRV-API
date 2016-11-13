@@ -12,6 +12,7 @@ import org.hibernate.criterion.Restrictions;
 import java.util.List;
 import java.util.Objects;
 
+import static com.irvingmichael.irvapi.entity.PollStatus.COMPLETED;
 import static com.irvingmichael.irvapi.entity.PollStatus.INITIAL;
 import static com.irvingmichael.irvapi.entity.PollStatus.OPEN;
 
@@ -68,7 +69,7 @@ public class PollDao extends GenericDao {
         Transaction tx = session.beginTransaction();
 
         List<Poll> polls = session.createCriteria(Poll.class)
-                    .add(Restrictions.eq("pollid", pollid))
+                    .add(Restrictions.eq("pollid", (pollid + 1)))
                     .list();
         Poll poll = polls.get(0);
 
@@ -92,7 +93,28 @@ public class PollDao extends GenericDao {
 
                 session.close();
                 break;
-
         }
+    }
+
+    public void changeWinner(PollStatus status, int pollid, int winner) {
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+
+        List<Poll> polls = session.createCriteria(Poll.class)
+                .add(Restrictions.eq("pollid", (pollid + 1)))
+                .list();
+        Poll poll = polls.get(0);
+
+        if (status == COMPLETED && winner != -1) {
+
+            poll.finalizeWinner(status, winner);
+            poll.setStatus(status);
+            session.update(poll);
+
+            tx.commit();
+
+            session.close();
+        }
+        session.close();
     }
 }
