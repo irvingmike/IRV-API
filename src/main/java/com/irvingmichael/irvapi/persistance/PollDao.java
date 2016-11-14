@@ -13,8 +13,6 @@ import java.util.List;
 import java.util.Objects;
 
 import static com.irvingmichael.irvapi.entity.PollStatus.COMPLETED;
-import static com.irvingmichael.irvapi.entity.PollStatus.INITIAL;
-import static com.irvingmichael.irvapi.entity.PollStatus.OPEN;
 
 /**
  * Created by Aaron Anderson on 10/9/16.
