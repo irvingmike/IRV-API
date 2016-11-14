@@ -299,7 +299,6 @@ public class Poll {
                 int choiceToRemove = getLowestVoteGetter();
                 votes = removeChoiceFromContention(choiceToRemove, votes);
             } else {
-
                 break;
             }
         }
