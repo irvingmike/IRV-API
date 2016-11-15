@@ -52,7 +52,7 @@ public class PollDaoTest {
         sql.executeUpdate();
         tx.commit();
     }
-/*
+
     @Test
     public void changePollStatusTest() {
         PollDao testDao = new PollDao();
@@ -70,5 +70,5 @@ public class PollDaoTest {
         poll.finalizeWinner(poll.getStatus(), poll.getWinner());
 
         testDao.changeWinner(poll.getStatus(), poll.getPollid(), poll.getWinner());
-    }*/
+    }
 }
