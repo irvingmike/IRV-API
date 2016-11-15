@@ -54,22 +54,13 @@ public class PollDaoTest {
         tx.commit();
     }
 
+    //  Tests for any changes in a specific poll
     @Test
-    public void changePollStatusTest() {
+    public void updatePoll() {
         PollDao testDao = new PollDao();
         Poll poll = new TestPollSetup().testPoll;
         poll.completePoll();
 
-        //testDao.changePollStatus(poll.getStatus(), poll.getPollid());
-    }
-
-    @Test
-    public void changeWinner() {
-        PollDao testDao = new PollDao();
-        Poll poll = new TestPollSetup().testPoll;
-        poll.completePoll();
-        //poll.finalizeWinner(poll.getStatus(), poll.getWinner());
-
-        //testDao.changeWinner(poll.getStatus(), poll.getPollid(), poll.getWinner());
+        testDao.update(poll);
     }
 }

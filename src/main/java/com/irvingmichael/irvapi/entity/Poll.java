@@ -323,23 +323,6 @@ public class Poll {
         determineWinner();
     }
 
-    /**
-     *  Finalizes Winner
-     *
-     *  @param  winner  the winner's id
-     *  @param  status  the poll status
-     */
-    public void finalizeWinner(PollStatus status, int winner) {
-
-        int winnerHolder = -1;
-
-        if (status == PollStatus.COMPLETED &&  status == getStatus()) {
-
-            winnerHolder = winner;
-        }
-
-        setWinner(winnerHolder);
-    }
 
     /**
      * Initiates the counting of votes for the poll
