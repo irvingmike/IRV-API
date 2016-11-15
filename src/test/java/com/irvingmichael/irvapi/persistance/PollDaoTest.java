@@ -72,8 +72,8 @@ public class PollDaoTest {
         PollDao testDao = new PollDao();
         Poll poll = new TestPollSetup().testPoll;
         poll.completePoll();
-        poll.finalizeWinner(poll.getStatus(), poll.getWinner());
+        //poll.finalizeWinner(poll.getStatus(), poll.getWinner());
 
-        testDao.changeWinner(poll.getStatus(), poll.getPollid(), poll.getWinner());
+        //testDao.changeWinner(poll.getStatus(), poll.getPollid(), poll.getWinner());
     }
 }
