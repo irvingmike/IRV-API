@@ -72,7 +72,7 @@ public class TestPollSetup {
         testVote.setCurrentRankings(createRanking(rankings));
         testVotes.add(testVote);
 
-        /*testVote = new Vote();
+        testVote = new Vote();
         rankings = new int[] {1,2,3,4};
         testVote.setVoteRankings(createRanking(rankings));
         testVote.setCurrentRankings(createRanking(rankings));
@@ -94,7 +94,7 @@ public class TestPollSetup {
         rankings = new int[] {1,2,3,4};
         testVote.setVoteRankings(createRanking(rankings));
         testVote.setCurrentRankings(createRanking(rankings));
-        testVotes.add(testVote);*/
+        testVotes.add(testVote);
 
         return testVotes;
     }

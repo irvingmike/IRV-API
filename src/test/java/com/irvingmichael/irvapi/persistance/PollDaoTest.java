@@ -61,7 +61,7 @@ public class PollDaoTest {
 
         testDao.changePollStatus(poll.getStatus(), poll.getPollid());
     }
-
+    /*
     @Test
     public void changeWinner() {
         PollDao testDao = new PollDao();
@@ -71,4 +71,5 @@ public class PollDaoTest {
 
         testDao.changeWinner(poll.getStatus(), poll.getPollid(), poll.getWinner());
     }
+    */
 }
