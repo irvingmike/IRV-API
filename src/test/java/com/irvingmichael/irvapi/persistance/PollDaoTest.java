@@ -61,18 +61,5 @@ public class PollDaoTest {
 
         testDao.changePollStatus(poll.getStatus(), poll.getPollid());
     }
-<<<<<<< HEAD
-    /*
-    @Test
-    public void changeWinner() {
-        PollDao testDao = new PollDao();
-        Poll poll = new TestPollSetup().testPoll;
-        poll.completePoll();
-        poll.finalizeWinner(poll.getStatus(), poll.getWinner());
 
-        testDao.changeWinner(poll.getStatus(), poll.getPollid(), poll.getWinner());
-    }
-    */
-=======
->>>>>>> first-depoly
 }
