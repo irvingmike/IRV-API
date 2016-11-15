@@ -315,11 +315,11 @@ public class Poll {
      *  Closes Poll
      */
     public void closePoll() { this.status = PollStatus.CLOSED; }
+
     /**
      *  Completes Poll and determines the winner
      */
     public void completePoll() {
-
         this.status = PollStatus.COMPLETED;
         determineWinner();
     }
@@ -463,7 +463,5 @@ public class Poll {
         }
         return "Bad ID supplied";
     }
-
-
 
 }

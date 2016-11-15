@@ -38,18 +38,8 @@ public class PollDaoTest {
     public void getAllPollsByVoterId() throws Exception {
         PollDao pollDao = new PollDao();
         List<Poll> polls = pollDao.getAllPollsByVoterId(1);
-<<<<<<< HEAD
         assertEquals("Bad polls status", PollStatus.OPEN, polls.get(polls.size() - 1).getStatus());
         assertTrue(polls.size() > 0);
-=======
-//<<<<<<<HEAD
-        assertEquals("Bad polls status", OPEN, polls.get(polls.size() - 1).getStatus());
-        assertEquals("Bad list size returned for getAllPollsByVoterId", 1, polls.size());
-//=======
-        assertEquals("Bad polls status", PollStatus.OPEN, polls.get(polls.size() - 1).getStatus());
-        assertTrue(polls.size() > 0);
-//>>>>>>> 03faffb3fa014e775d12c0b443de534aadd19344
->>>>>>> vang
         assertEquals("Bad choices size for oldest poll", -1, polls.get(polls.size() - 1).getWinner());
         assertEquals("Bad poll name returned for oldest poll", "Test Poll", polls.get(polls.size() - 1).getTitle());
     }
@@ -62,7 +52,7 @@ public class PollDaoTest {
         sql.executeUpdate();
         tx.commit();
     }
-
+/*
     @Test
     public void changePollStatusTest() {
         PollDao testDao = new PollDao();
@@ -80,5 +70,5 @@ public class PollDaoTest {
         poll.finalizeWinner(poll.getStatus(), poll.getWinner());
 
         testDao.changeWinner(poll.getStatus(), poll.getPollid(), poll.getWinner());
-    }
+    }*/
 }
