@@ -350,9 +350,10 @@ public class Poll {
         setVotesCountsToZero();
         for (Vote vote : votes) {
             int currentChoice = findHighestRankedChoice(vote);
-
+            voteCounts.get(currentChoice);
             voteCounts.put(currentChoice, voteCounts.get(currentChoice) + 1);
         }
+
     }
 
     /**
@@ -421,6 +422,7 @@ public class Poll {
         for (Vote vote : votes) {
             newVotes.add(removeChoiceFromVote(idToRemove, vote));
         }
+
         return newVotes;
     }
 

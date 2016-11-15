@@ -26,7 +26,7 @@ public class Voter {
     @Column(name = "email")
     private String email;
 
-    public  Voter() { this.voterId = -1; };
+    public  Voter() { this.voterId = -1; }
 
     public Voter(String email) {
         this();
