@@ -27,11 +27,12 @@ public class Voter {
     private String email;
 
     /**
-     *
+     *  Empty constructor to initialize Voter id
      */
     public  Voter() { this.voterId = -1; };
 
     /**
+     * Constructor to initialize Voter email
      *
      * @param email
      */
@@ -41,10 +42,10 @@ public class Voter {
     }
 
     /**
-     *
-     * @param firstName
-     * @param lastName
-     * @param email
+     * Main Constructor to initialize Voter attributes
+     * @param firstName     first name of Voter
+     * @param lastName      last name of Voter
+     * @param email         Voter e-mail
      */
     public Voter(String firstName, String lastName, String email) {
         this(email);
@@ -53,7 +54,7 @@ public class Voter {
     }
 
     /**
-     *
+     * Sets an id for Voter
      * @param voterId
      */
     public void setVoterId(int voterId) {
@@ -63,38 +64,38 @@ public class Voter {
     }
 
     /**
-     *
-     * @return
+     * Returns the Voter id
+     * @return  the id
      */
     public int getVoterId() {
         return voterId;
     }
 
     /**
-     *
-     * @return
+     * Returns Voter's first name
+     * @return  the first name
      */
     public String getFirstName() {
         return firstName;
     }
 
     /**
-     *
-     * @param firstName
+     *  Sets a first name for Voter
+     * @param firstName     a first name
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
     /**
-     *
+     * Returns Voter's last name
      */
     public String getLastName() {
         return lastName;
     }
 
     /**
-     *
+     * Sets a last name for Voter
      * @param lastName
      */
     public void setLastName(String lastName) {
@@ -102,8 +103,8 @@ public class Voter {
     }
 
     /**
-     *
-     * @return
+     * Returns Voter's e-mail
+     * @return  Voter's e-mail
      */
     public String getEmail() {
         return email;
