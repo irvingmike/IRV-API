@@ -287,8 +287,6 @@ public class Poll {
      */
     void determineWinner() {
 
-        //  TODO: Modify codes to remove multiple choices with the same amount of votes and are the lowest.
-
         for (Vote vote : votes) {
             vote.setCurrentRankings(vote.getVoteRankings());
         }
