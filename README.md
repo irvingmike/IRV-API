@@ -275,6 +275,7 @@ Well to start you are going no need to register as a voter (i.e. create a login)
 
 ```json
 { "result":"Bad token supplied" }
+```
 
 ## Cast a Vote in a Poll
 
