@@ -16,8 +16,13 @@ import static org.junit.Assert.*;
  */
 public class PollTest {
 
-    private static Poll poll = new TestPollSetup().testPoll;
+    private static Poll poll;
     private final Logger log = Logger.getLogger("debugLogger");
+
+    public PollTest() {
+        poll = new TestPollSetup().testPoll;
+        poll.setCurrentChoices();
+    }
 
     @BeforeClass
     public static void setup() {
@@ -25,6 +30,7 @@ public class PollTest {
     }
     @Test
     public void countVotes() throws Exception {
+        poll.setVotesCountsToZero();
         poll.countVotes();
         for (Map.Entry<Integer, Integer> entry : poll.getVoteCounts().entrySet()) {
             log.debug("Key: " + entry.getKey() + ", Value: " + entry.getValue());
@@ -83,10 +89,10 @@ public class PollTest {
     public void findHighestRankedChoice() throws Exception {
         Vote testVote = poll.getVotes().get(0);
         assertEquals("Wrong highest choice found", 1, poll.findHighestRankedChoice(testVote));
-        /*testVote = poll.getVotes().get(1);
+        testVote = poll.getVotes().get(1);
         assertEquals("Wrong highest choice found", 2, poll.findHighestRankedChoice(testVote));
         testVote = poll.getVotes().get(8);
-        assertEquals("Wrong highest choice found", 3, poll.findHighestRankedChoice(testVote));*/
+        assertEquals("Wrong highest choice found", 3, poll.findHighestRankedChoice(testVote));
     }
 
     @Before
@@ -100,6 +106,7 @@ public class PollTest {
     }
     @Test
     public void getLowestVoteGetter() throws Exception {
+        poll.setCurrentChoices();
         poll.countVotes();
         assertEquals("Incorrect lowest voter getter returned", 4, poll.getLowestVoteGetter());
     }
@@ -182,7 +189,7 @@ public class PollTest {
         poll.determineWinner();
 
         // Comment out the last 4 testVotes in 'TestPollSetup' due to tied choices [C and D]
-        assertEquals(2, poll.getWinner());
+        assertEquals(1, poll.getWinner());
         assertEquals(0, poll.getPollid());
 
     }

@@ -16,8 +16,7 @@ public class TestPollSetup {
     public Poll testPoll;
 
     private final Logger log = Logger.getLogger("debugLogger");
-
-
+    
     public TestPollSetup() {
         testPoll = new Poll("Test Poll");
         testPoll.setChoices(makeTestChoices());

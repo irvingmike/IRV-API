@@ -36,6 +36,8 @@ public class Poll {
     @Transient
     private ArrayList<Choice> choices;
     @Transient
+    private ArrayList<Integer> currentChoices;
+    @Transient
     private ArrayList<Vote> votes;
     @Transient
     private HashMap<Integer, Integer> voteCounts;
@@ -54,7 +56,7 @@ public class Poll {
     /**
      * Empty constructor, build code for poll. Code can be replaced for existing polls.
      */
-    public Poll() { this.pollCode = RandomStringUtils.random(8, true, true); status = PollStatus.INITIAL; }
+    public Poll() { this.pollCode = RandomStringUtils.random(8, true, true); status = PollStatus.INITIAL; currentChoices = new ArrayList<>(); }
 
     /**
      * Main use constructor for a Poll
@@ -179,6 +181,12 @@ public class Poll {
         this.choices = choices;
     }
 
+    void setCurrentChoices() {
+        currentChoices = new ArrayList<>();
+        for (Choice choice : choices) {
+            currentChoices.add(choice.getId());
+        }
+    }
     /**
      * Returns a list of votes
      *
@@ -286,6 +294,7 @@ public class Poll {
      * Calculates and sets the winner of the poll
      */
     void determineWinner() {
+        setCurrentChoices();
 
         //  TODO: Modify codes to remove multiple choices with the same amount of votes and are the lowest.
 
@@ -315,11 +324,11 @@ public class Poll {
      *  Closes Poll
      */
     public void closePoll() { this.status = PollStatus.CLOSED; }
+
     /**
      *  Completes Poll and determines the winner
      */
     public void completePoll() {
-
         this.status = PollStatus.COMPLETED;
         determineWinner();
     }
@@ -416,6 +425,7 @@ public class Poll {
      * @return Array of votes with choice removed
      */
     ArrayList<Vote> removeChoiceFromContention(int idToRemove, ArrayList<Vote> votes) {
+        currentChoices.remove((Integer) idToRemove);
         ArrayList<Vote> newVotes = new ArrayList<Vote>();
         for (Vote vote : votes) {
             newVotes.add(removeChoiceFromVote(idToRemove, vote));
@@ -445,8 +455,8 @@ public class Poll {
      */
     void setVotesCountsToZero() {
         voteCounts = new HashMap<Integer, Integer>();
-        for (Choice choice : choices) {
-            voteCounts.put(choice.getId(), 0);
+        for (int choice : currentChoices) {
+            voteCounts.put(choice, 0);
         }
     }
 
@@ -463,7 +473,5 @@ public class Poll {
         }
         return "Bad ID supplied";
     }
-
-
 
 }
