@@ -60,6 +60,9 @@ public class PollDaoTest {
         PollDao testDao = new PollDao();
         Poll testPoll = new TestPollSetup().testPoll;
 
+        testPoll.getPollid();
+
+        testPoll.completePoll();
         testDao.update(testPoll);
     }
 }

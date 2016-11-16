@@ -329,6 +329,7 @@ public class Poll {
      */
     public void completePoll() {
         this.status = PollStatus.COMPLETED;
+        this.getPollid();
         determineWinner();
     }
 
