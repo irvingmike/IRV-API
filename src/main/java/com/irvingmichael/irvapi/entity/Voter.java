@@ -26,10 +26,14 @@ public class Voter {
     @Column(name = "email")
     private String email;
 
+<<<<<<< HEAD
     /**
      *  Empty constructor to initialize Voter id
      */
     public  Voter() { this.voterId = -1; };
+=======
+    public  Voter() { this.voterId = -1; }
+>>>>>>> vang
 
     /**
      * Constructor to initialize Voter email
