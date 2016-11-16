@@ -2,7 +2,7 @@ package com.irvingmichael.irvapi.entity;
 
 import com.irvingmichael.irvapi.persistance.PollDao;
 import org.apache.log4j.Logger;
-
+import com.irvingmichael.irvapi.entity.*;
 import java.util.*;
 
 import org.apache.commons.lang.RandomStringUtils;
@@ -294,10 +294,8 @@ public class Poll {
      * Calculates and sets the winner of the poll
      */
     void determineWinner() {
-<<<<<<< HEAD
+
         setCurrentChoices();
-=======
->>>>>>> vang
 
         for (Vote vote : votes) {
             vote.setCurrentRankings(vote.getVoteRankings());
@@ -334,10 +332,6 @@ public class Poll {
         determineWinner();
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> vang
     /**
      * Initiates the counting of votes for the poll
      */
