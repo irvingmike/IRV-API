@@ -42,7 +42,7 @@
 
 #### Vang
 * Set up irv database helped by Aaron.
-* Tests two new methods (open and close)
+* Tested two new methods (open and close)
 * Achieved to change poll status.
 * Added Enumerated annotation for status
 * Successfully updated poll status with integers
