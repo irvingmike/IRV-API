@@ -294,10 +294,8 @@ public class Poll {
      * Calculates and sets the winner of the poll
      */
     void determineWinner() {
-<<<<<<< HEAD
+
         setCurrentChoices();
-=======
->>>>>>> vang
 
         for (Vote vote : votes) {
             vote.setCurrentRankings(vote.getVoteRankings());
@@ -334,10 +332,6 @@ public class Poll {
         determineWinner();
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> vang
     /**
      * Initiates the counting of votes for the poll
      */

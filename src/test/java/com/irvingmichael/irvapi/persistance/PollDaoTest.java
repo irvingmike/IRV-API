@@ -62,8 +62,12 @@ public class PollDaoTest {
 
     //  Tests for any changes in a specific poll
     @Test
-
     public void updatePollTest() {
+        PollDao testDao = new PollDao();
+        Poll testPoll = new TestPollSetup().testPoll;
 
+        testPoll.completePoll();
+
+        testDao.update(testPoll);
     }
 }
