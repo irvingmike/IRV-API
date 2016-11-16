@@ -54,12 +54,12 @@ public class PollDaoTest {
     }
 
     @Test
-    public void changePollStatusTest() {
+    public void updatePollTest() {
         PollDao testDao = new PollDao();
         Poll poll = new TestPollSetup().testPoll;
         poll.completePoll();
 
-        testDao.changePollStatus(poll.getStatus(), poll.getPollid());
+        testDao.update(poll);
     }
 
 }

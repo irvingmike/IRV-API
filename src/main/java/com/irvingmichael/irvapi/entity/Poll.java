@@ -296,8 +296,6 @@ public class Poll {
     void determineWinner() {
         setCurrentChoices();
 
-        //  TODO: Modify codes to remove multiple choices with the same amount of votes and are the lowest.
-
         for (Vote vote : votes) {
             vote.setCurrentRankings(vote.getVoteRankings());
         }
@@ -331,24 +329,6 @@ public class Poll {
     public void completePoll() {
         this.status = PollStatus.COMPLETED;
         determineWinner();
-    }
-
-    /**
-     *  Finalizes Winner
-     *
-     *  @param  winner  the winner's id
-     *  @param  status  the poll status
-     */
-    public void finalizeWinner(PollStatus status, int winner) {
-
-        int winnerHolder = -1;
-
-        if (status == PollStatus.COMPLETED &&  status == getStatus()) {
-
-            winnerHolder = winner;
-        }
-
-        setWinner(winnerHolder);
     }
 
     /**
