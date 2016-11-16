@@ -15,15 +15,15 @@ There are other election systems besides the two party system used by the United
 
 [Instant Runoff Voting Example (1.5 minutes)](https://www.youtube.com/watch?v=_5SLQXNpzsk)
 
-See wasn't that better? Short to the point and clear.
+See? Wasn't that better? Short to the point and clear.
 
 Huh? You still want to know more? Weirdo. But my kind of weirdo!
 * [InstantRunOff.com](http://instantrunoff.com/instant-runoff-home/)
 * [FairVote.org's Ranked Choice Voting](http://www.fairvote.org/rcv#rcvbenefits)
 
 ## Tips for Using This Guide
-1. With the exception of creating a new voter and logging in, all requests must be accopied by a valid authentication token. Logging in will supply your token. These tokens expire after 60 minutes of no access and you will have to login again to get a new token.
-1. All parameters must be supplied, those marked optional can be empty.
+1. With the exception of creating a new voter and logging in, all requests must be occupied by a valid authentication token. Logging in will supply your token. These tokens expire after 60 minutes of no access, and you will have to login again to get a new token.
+1. All parameters must be supplied. Those marked optional can be empty.
 1. If a body is specified it is required for the action.
 
 ## Bad Authentication Token Result
@@ -35,7 +35,7 @@ Any request that doesn't supply a valid authentication token will result in the 
 ```
 
 ## Creating a New Voter (user)
-Well to start you are going no need to register as a voter (i.e. create a login). Email address and password combination will be required for logging in to the API.
+Well to start, you are going to need to register as a voter (i.e. create a login). Email address and password combination will be required for logging into the API.
 
 #### Target URL:
 `http:\\irvingmichael.com\irv-api\createNewVoter`
@@ -43,7 +43,7 @@ Well to start you are going no need to register as a voter (i.e. create a login)
 #### URL Parameters:
 > * **firstname** - 0-45 characters _optional_
 > * **lastname** - 0-100 characters _optional_
-> * **email** - Your email addess, 0-254 characters
+> * **email** - Your E-mail address, 0-254 characters
 >* **password** - Password for your account
 
 #### Returned:
@@ -59,7 +59,7 @@ Well to start you are going no need to register as a voter (i.e. create a login)
 `http:\\irvingmichael.com\irv-api\login`
 
 #### URL Parameters:
-> * **email** - Your email addess, 0-254 characters
+> * **email** - Your E-mail address, 0-254 characters
 >* **password** - Password for your account
 
 #### Returned:
@@ -77,14 +77,14 @@ Well to start you are going no need to register as a voter (i.e. create a login)
 { "result":"Login failed" }
 ```
 
-## Getting a Voter Based on Their Email
+## Getting a Voter Based on Their E-mail
 
 ### Target url:
 `http:\\irvingmichael.com\irv-api\getVoterByEmail`
 
 #### URL Parameters:
 > * **authtoken** - The authtoken you were supplied when logging in.
-> * **email** - Email addess of the voter to retrieve, 0-254 characters
+> * **email** - E-mail address of the voter to retrieve, 0-254 characters
 
 #### Returned:
 **Success:**
@@ -142,7 +142,7 @@ Well to start you are going no need to register as a voter (i.e. create a login)
 > **choices** - Array of choices for the poll.
 
 ##### Choice Items
-> **name** - Name of the choice, used when casting a vote.
+> **name** - Name of the choice. Used when casting a vote.
 > **description** - Long description of the choice to give more information about it. _optional_
 
 #### Returned:
@@ -191,7 +191,7 @@ Well to start you are going no need to register as a voter (i.e. create a login)
 > **pollid** - The generated id for the poll
 > **title** - Is the title of the poll.
 > **description** - This is a longer description of the poll.
-> **available - Boolean as to wiether the poll should be accesable to people other than the creator.
+> **available - Boolean as to whether the poll should be accessible to people other than the creator.
 > **choices** - Array of choices for the poll.
 > **creator** - ID of the voter creating the poll.
 > **winner** - Winner of the poll if the poll is complete
@@ -199,7 +199,7 @@ Well to start you are going no need to register as a voter (i.e. create a login)
 > **status** - Current status of the poll
 
 ##### Choice Items
-> **name** - Name of the choice, used when casting a vote.
+> **name** - Name of the choice. Used when casting a vote.
 > **description** - Long description of the choice to give more information about it. _optional_
 
 **Failure:**
@@ -234,7 +234,7 @@ Well to start you are going no need to register as a voter (i.e. create a login)
 > **pollid** - The generated id for the poll
 > **title** - Is the title of the poll.
 > **description** - This is a longer description of the poll.
-> **available - Boolean as to wiether the poll should be accesable to people other than the creator.
+> **available - Boolean as to whether the poll should be accessible to people other than the creator.
 > **creator** - ID of the voter creating the poll.
 > **winner** - Winner of the poll if the poll is complete
 > **pollcode** - Code required for a voter to register with an election. This should be shared with voters.
@@ -329,7 +329,7 @@ Well to start you are going no need to register as a voter (i.e. create a login)
 | **Authentication Token** | An API generated string that is required as part of most requests to access the API. Supplied upon a valid login. |
 | **Choice** | A single options offered in a poll. |
 | **Creator** | The voter that created a specific poll. |
-| **Poll** | The encompassing term for a topic to vote on and all information assciated with it. |
+| **Poll** | The encompassing term for a topic to vote on and all information associated with it. |
 | **Poll Code** | An 8 character code that is specific to a single poll. Used to register a voter with a poll. This should be shared with voters. |
-| **Status** | Current status of the poll:<br/><ul><li>INTIAL - Poll created but not open to registering or voting</li><li>OPEN - Poll is open for regitering and voting</li><li>CLOSED - Poll is closed by the creator. Registering and voting unavailable.</li><li>COMPLETE - Poll is complete and winner has been calculated.</li></ul> |
+| **Status** | Current status of the poll:<br/><ul><li>INITIAL - Poll created but not open to registering or voting</li><li>OPEN - Poll is open for registering and voting</li><li>CLOSED - Poll is closed by the creator. Registering and voting unavailable.</li><li>COMPLETE - Poll is complete and winner has been calculated.</li></ul> |
 | **Voter** | This is a user of the api. All user are also voters |
