@@ -62,6 +62,9 @@
 
 ## Week 12 (Nov 14 - Nov 20)
 #### Aaron
+* Working with Vang to get our work integrated together
+* Deploy the finalized app to Digital Ocean
+* Code cleanup
 
 #### Vang
 * Debugged a problem that loops infinitely with Aaron

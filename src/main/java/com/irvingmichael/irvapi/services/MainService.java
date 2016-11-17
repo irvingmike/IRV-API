@@ -30,6 +30,7 @@ public class MainService {
 
     /**
      * Login with existing account
+     *
      * @param username Email address for account to access
      * @param password Password for account
      * @return Response sent back to requestor as JSON
@@ -54,7 +55,8 @@ public class MainService {
 
     /**
      * Method to get a single voter by supplying an id
-     * @param authtoken Token required to access the API
+     *
+     * @param authtoken     Token required to access the API
      * @param suppliedEmail Email for voter to retrieve
      * @return Response sent requestor as JSON
      */
@@ -83,10 +85,11 @@ public class MainService {
 
     /**
      * Add a new user to the database
+     *
      * @param firstname New voter first name
-     * @param lastname New voter last name
-     * @param email New voter email
-     * @param password New voter password
+     * @param lastname  New voter last name
+     * @param email     New voter email
+     * @param password  New voter password
      * @param jsonVoter JSON text from the body of the request
      * @return Response sent requestor as JSON
      */
@@ -106,7 +109,7 @@ public class MainService {
         Gson gson = new Gson();
         Voter newVoter = new Voter(firstname, lastname, email);
 
-        if(!jsonVoter.isEmpty()) {
+        if (!jsonVoter.isEmpty()) {
             newVoter = gson.fromJson(jsonVoter, Voter.class);
         }
 
@@ -122,7 +125,8 @@ public class MainService {
 
     /**
      * Create new poll and choices, poll and choices must be supplied as a JSON in the body with authtoken as a param.
-     * @param authtoken Token required to access the API
+     *
+     * @param authtoken   Token required to access the API
      * @param newPollJson JSON from body of request
      * @return Response with new poll as json
      */
@@ -162,8 +166,9 @@ public class MainService {
 
     /**
      * Returns a specific poll as json based on pollid provided
+     *
      * @param authtoken Token required to access the API
-     * @param pollId Id of poll to return
+     * @param pollId    Id of poll to return
      * @return Poll as JSON
      */
     @GET
@@ -187,16 +192,16 @@ public class MainService {
             }
         } else {
             status = Status.UNAUTHORIZED;
-            jsonToReturn = "{ \"result\":\"Bad token supplied\" }";        }
+            jsonToReturn = "{ \"result\":\"Bad token supplied\" }";
+        }
 
         return Response.status(status.getStatusCode()).entity(jsonToReturn).build();
     }
 
-   /**
-     *
+    /**
      * @param authtoken Token required to access the API
-     * @param pollcode Pollcode for poll to register with
-     * @param stringId VoterId for voter to register
+     * @param pollcode  Pollcode for poll to register with
+     * @param stringId  VoterId for voter to register
      * @return Response sent back to requestor as JSON
      */
     @POST
@@ -231,7 +236,8 @@ public class MainService {
 
     /**
      * Cast a vote for a single voter for a specific poll
-     * @param authtoken Token required to access the API
+     *
+     * @param authtoken     Token required to access the API
      * @param jsonToProcess Vote to cast encoded as JSON
      * @return JSON encoded message of result
      */
@@ -264,38 +270,4 @@ public class MainService {
         }
         return Response.status(status.getStatusCode()).entity(jsonToReturn).build();
     }
-
-    /* EXAMPLES FOR REFERENCE ONLY
-    // Just for basic request setup testing
-    @GET
-    @Produces("application/json")
-    public Response get() {
-        String output = "{ \"result\":\"Success with a get!\" }";
-        return Response.status(200).entity(output).build();
-    }
-
-    // For New
-    @POST
-    @Produces("application/json")
-    public Response post() {
-        String output = "{ \"result\":\"Success with a post!\" }";
-        return Response.status(200).entity(output).build();
-    }
-
-    // For Updates
-    @PUT
-    @Produces("application/json")
-    public Response put() {
-        String output = "{ \"result\":\"Success with a put!\" }";
-        return Response.status(200).entity(output).build();
-    }
-
-    // For Deleting
-    @DELETE
-    @Produces("application/json")
-    public Response delete() {
-        String output = "{ \"result\":\"Success with a delete!\" }";
-        return Response.status(200).entity(output).build();
-    }
-    */
 }

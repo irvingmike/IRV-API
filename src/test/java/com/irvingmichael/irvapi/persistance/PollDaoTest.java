@@ -60,8 +60,14 @@ public class PollDaoTest {
         PollDao testDao = new PollDao();
         Poll testPoll = new TestPollSetup().testPoll;
 
-        testPoll.completePoll();
+        //testPoll.completePoll();
+        testPoll.openPoll();
 
         testDao.update(testPoll);
+        Poll newPoll = (Poll) testDao.getById(testPoll.getPollid());
+        assertTrue(newPoll.getStatus() == PollStatus.OPEN);
+
+        newPoll.closePoll();
+        testDao.update(newPoll);
     }
 }
