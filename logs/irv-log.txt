@@ -1576,3 +1576,91 @@ Status changed to: OPEN
 [2016-11-15 20:06:23,359] HHH000399: Using default transaction strategy (direct JDBC transactions)
 [2016-11-15 20:06:23,377] HHH000397: Using ASTQueryTranslatorFactory
 >>>>>>> vang
+[2016-11-17 10:17:28,133] Key: 1, Value: 3
+[2016-11-17 10:17:28,135] Key: 2, Value: 4
+[2016-11-17 10:17:28,135] Key: 3, Value: 2
+[2016-11-17 10:17:28,135] Key: 4, Value: 1
+[2016-11-17 10:17:28,381] HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+[2016-11-17 10:17:28,395] HHH000412: Hibernate Core {4.3.11.Final}
+[2016-11-17 10:17:28,399] HHH000206: hibernate.properties not found
+[2016-11-17 10:17:28,401] HHH000021: Bytecode provider name : javassist
+[2016-11-17 10:17:28,436] HHH000043: Configuring from resource: /hibernate.cfg.xml
+[2016-11-17 10:17:28,436] HHH000040: Configuration resource: /hibernate.cfg.xml
+[2016-11-17 10:17:28,593] HHH000041: Configured SessionFactory: null
+[2016-11-17 10:17:28,697] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+[2016-11-17 10:17:28,709] HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/irv_project]
+[2016-11-17 10:17:28,710] HHH000046: Connection properties: {user=irvapi, password=****}
+[2016-11-17 10:17:28,710] HHH000006: Autocommit mode: false
+[2016-11-17 10:17:28,711] HHH000115: Hibernate connection pool size: 20 (min=1)
+[2016-11-17 10:17:29,119] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2016-11-17 10:17:29,340] HHH000399: Using default transaction strategy (direct JDBC transactions)
+[2016-11-17 10:17:29,346] HHH000397: Using ASTQueryTranslatorFactory
+[2016-11-17 10:17:30,060] 2
+[2016-11-17 10:17:30,216] org.hibernate.StaleStateException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1
+[2016-11-17 10:17:30,216] HHH000010: On release of batch it still contained JDBC statements
+[2016-11-17 10:18:15,120] Key: 1, Value: 3
+[2016-11-17 10:18:15,122] Key: 2, Value: 4
+[2016-11-17 10:18:15,122] Key: 3, Value: 2
+[2016-11-17 10:18:15,122] Key: 4, Value: 1
+[2016-11-17 10:18:15,335] HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+[2016-11-17 10:18:15,344] HHH000412: Hibernate Core {4.3.11.Final}
+[2016-11-17 10:18:15,348] HHH000206: hibernate.properties not found
+[2016-11-17 10:18:15,351] HHH000021: Bytecode provider name : javassist
+[2016-11-17 10:18:15,389] HHH000043: Configuring from resource: /hibernate.cfg.xml
+[2016-11-17 10:18:15,389] HHH000040: Configuration resource: /hibernate.cfg.xml
+[2016-11-17 10:18:15,482] HHH000041: Configured SessionFactory: null
+[2016-11-17 10:18:15,588] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+[2016-11-17 10:18:15,598] HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/irv_project]
+[2016-11-17 10:18:15,598] HHH000046: Connection properties: {user=irvapi, password=****}
+[2016-11-17 10:18:15,599] HHH000006: Autocommit mode: false
+[2016-11-17 10:18:15,600] HHH000115: Hibernate connection pool size: 20 (min=1)
+[2016-11-17 10:18:15,945] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2016-11-17 10:18:16,119] HHH000399: Using default transaction strategy (direct JDBC transactions)
+[2016-11-17 10:18:16,122] HHH000397: Using ASTQueryTranslatorFactory
+[2016-11-17 10:18:16,710] 2
+[2016-11-17 10:18:16,782] org.hibernate.StaleStateException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1
+[2016-11-17 10:18:16,782] HHH000010: On release of batch it still contained JDBC statements
+[2016-11-17 10:18:50,405] Key: 1, Value: 3
+[2016-11-17 10:18:50,406] Key: 2, Value: 4
+[2016-11-17 10:18:50,407] Key: 3, Value: 2
+[2016-11-17 10:18:50,407] Key: 4, Value: 1
+[2016-11-17 10:18:50,613] HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+[2016-11-17 10:18:50,623] HHH000412: Hibernate Core {4.3.11.Final}
+[2016-11-17 10:18:50,626] HHH000206: hibernate.properties not found
+[2016-11-17 10:18:50,629] HHH000021: Bytecode provider name : javassist
+[2016-11-17 10:18:50,660] HHH000043: Configuring from resource: /hibernate.cfg.xml
+[2016-11-17 10:18:50,661] HHH000040: Configuration resource: /hibernate.cfg.xml
+[2016-11-17 10:18:50,761] HHH000041: Configured SessionFactory: null
+[2016-11-17 10:18:50,866] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+[2016-11-17 10:18:50,874] HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/irv_project]
+[2016-11-17 10:18:50,874] HHH000046: Connection properties: {user=irvapi, password=****}
+[2016-11-17 10:18:50,874] HHH000006: Autocommit mode: false
+[2016-11-17 10:18:50,875] HHH000115: Hibernate connection pool size: 20 (min=1)
+[2016-11-17 10:18:51,242] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2016-11-17 10:18:51,432] HHH000399: Using default transaction strategy (direct JDBC transactions)
+[2016-11-17 10:18:51,435] HHH000397: Using ASTQueryTranslatorFactory
+[2016-11-17 10:18:52,040] 2
+[2016-11-17 10:18:52,115] org.hibernate.StaleStateException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1
+[2016-11-17 10:18:52,115] HHH000010: On release of batch it still contained JDBC statements
+[2016-11-17 10:19:31,214] Key: 1, Value: 3
+[2016-11-17 10:19:31,215] Key: 2, Value: 4
+[2016-11-17 10:19:31,215] Key: 3, Value: 2
+[2016-11-17 10:19:31,215] Key: 4, Value: 1
+[2016-11-17 10:19:31,434] HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+[2016-11-17 10:19:31,438] HHH000412: Hibernate Core {4.3.11.Final}
+[2016-11-17 10:19:31,441] HHH000206: hibernate.properties not found
+[2016-11-17 10:19:31,443] HHH000021: Bytecode provider name : javassist
+[2016-11-17 10:19:31,463] HHH000043: Configuring from resource: /hibernate.cfg.xml
+[2016-11-17 10:19:31,464] HHH000040: Configuration resource: /hibernate.cfg.xml
+[2016-11-17 10:19:31,538] HHH000041: Configured SessionFactory: null
+[2016-11-17 10:19:31,619] HHH000402: Using Hibernate built-in connection pool (not for production use!)
+[2016-11-17 10:19:31,625] HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/irv_project]
+[2016-11-17 10:19:31,626] HHH000046: Connection properties: {user=irvapi, password=****}
+[2016-11-17 10:19:31,626] HHH000006: Autocommit mode: false
+[2016-11-17 10:19:31,628] HHH000115: Hibernate connection pool size: 20 (min=1)
+[2016-11-17 10:19:31,983] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[2016-11-17 10:19:32,146] HHH000399: Using default transaction strategy (direct JDBC transactions)
+[2016-11-17 10:19:32,152] HHH000397: Using ASTQueryTranslatorFactory
+[2016-11-17 10:19:32,738] 2
+[2016-11-17 10:19:32,803] org.hibernate.StaleStateException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1
+[2016-11-17 10:19:32,803] HHH000010: On release of batch it still contained JDBC statements

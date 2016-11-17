@@ -39,15 +39,9 @@ public class PollDaoTest {
         PollDao pollDao = new PollDao();
         List<Poll> polls = pollDao.getAllPollsByVoterId(1);
 
-/*<<<<<<< HEAD
         assertEquals("Bad polls status", PollStatus.COMPLETED, polls.get(polls.size() - 1).getStatus());
         assertTrue(polls.size() > 0);
         assertEquals("Bad choices size for oldest poll", 1, polls.get(polls.size() - 1).getWinner());
-=======*/
-
-        assertEquals("Bad polls status", PollStatus.OPEN, polls.get(polls.size() - 1).getStatus());
-        assertTrue(polls.size() > 0);
-        assertEquals("Bad choices size for oldest poll", -1, polls.get(polls.size() - 1).getWinner());
         assertEquals("Bad poll name returned for oldest poll", "Test Poll", polls.get(polls.size() - 1).getTitle());
     }
 
