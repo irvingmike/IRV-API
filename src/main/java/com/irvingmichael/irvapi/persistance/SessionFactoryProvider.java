@@ -1,4 +1,4 @@
-package com.irvingmichael.irv.persistance;
+package com.irvingmichael.irvapi.persistance;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -10,11 +10,11 @@ import org.hibernate.service.ServiceRegistry;
  * @author paulawaite
  * @version 1.0 10/21/15.
  */
-class SessionFactoryProvider {
+public class SessionFactoryProvider {
 
     private static SessionFactory sessionFactory;
 
-    static void createSessionFactory() {
+    private static void createSessionFactory() {
 
         Configuration configuration = new Configuration();
         configuration.configure();
@@ -23,7 +23,7 @@ class SessionFactoryProvider {
         sessionFactory = configuration.buildSessionFactory(serviceRegistry);
     }
 
-    static SessionFactory getSessionFactory() {
+    public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             createSessionFactory();
         }

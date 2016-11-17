@@ -1,0 +1,4 @@
+INSERT INTO irv_project.Polls (title, description, pollcode, available, votingopen, votingclosed, creator, winner, status) VALUES ('Test Poll', 'This is a test poll.', 'abcdefgh', 1, '2016-10-03 17:50:58', null, 1, -1, 1);
+INSERT INTO irv_project.Polls (title, description, pollcode, available, votingopen, votingclosed, creator, winner, status) VALUES ('test api create poll name', 'api create poll test description', 'BVGts8Hf', 0, null, null, 11, 0, 0);
+INSERT INTO irv_project.Polls (title, description, pollcode, available, votingopen, votingclosed, creator, winner, status) VALUES ('test api create poll name', 'api create poll test description', 'DRuuGLPW', 0, null, null, 11, 0, 0);
+INSERT INTO irv_project.Polls (title, description, pollcode, available, votingopen, votingclosed, creator, winner, status) VALUES ('test api create poll name', 'api create poll test description', 'ns8tfJB8', 0, null, null, 11, 0, 0);

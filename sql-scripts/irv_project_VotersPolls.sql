@@ -1,0 +1,10 @@
+INSERT INTO irv_project.VotersPolls (voterid, pollid, notify) VALUES (1, 1, 0);
+INSERT INTO irv_project.VotersPolls (voterid, pollid, notify) VALUES (2, 1, 0);
+INSERT INTO irv_project.VotersPolls (voterid, pollid, notify) VALUES (3, 1, 0);
+INSERT INTO irv_project.VotersPolls (voterid, pollid, notify) VALUES (4, 1, 0);
+INSERT INTO irv_project.VotersPolls (voterid, pollid, notify) VALUES (5, 1, 0);
+INSERT INTO irv_project.VotersPolls (voterid, pollid, notify) VALUES (6, 1, 0);
+INSERT INTO irv_project.VotersPolls (voterid, pollid, notify) VALUES (7, 1, 0);
+INSERT INTO irv_project.VotersPolls (voterid, pollid, notify) VALUES (8, 1, 0);
+INSERT INTO irv_project.VotersPolls (voterid, pollid, notify) VALUES (9, 1, 0);
+INSERT INTO irv_project.VotersPolls (voterid, pollid, notify) VALUES (10, 1, 0);

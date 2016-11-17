@@ -1,13 +1,11 @@
-package com.irvingmichael.irv.persistance;
+package com.irvingmichael.irvapi.persistance;
 
-import com.irvingmichael.irv.entity.Choice;
+import com.irvingmichael.irvapi.entity.Choice;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,7 +15,7 @@ import java.util.List;
  */
 public class ChoiceDao extends GenericDao {
 
-    private final Logger log = Logger.getLogger(this.getClass());
+    private final Logger log = Logger.getLogger("debugLogger");
 
     public ChoiceDao() { super(Choice.class); }
 
@@ -34,5 +32,19 @@ public class ChoiceDao extends GenericDao {
                 .list();
         session.close();
         return choices;
+    }
+
+    /**
+     * Returns the choice winner from the database
+     * @param pollid the poll's id
+     * @return the winner
+     */
+    public Choice getChoiceWinner(int pollid) {
+        Choice choice;
+
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        choice = (Choice) session.createSQLQuery("SELECT name FROM Choices JOIN Polls ON pollid = " + pollid + " WHERE winner = 0");
+
+        return choice;
     }
 }

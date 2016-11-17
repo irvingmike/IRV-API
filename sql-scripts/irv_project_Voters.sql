@@ -1,0 +1,15 @@
+INSERT INTO irv_project.Voters (firstname, lastname, email, securedby) VALUES ('One', 'TestVoter', 'fake1@fake.com', '1cf311c819be2d73ab4a3c8cb5327418c4f9e30cb17adb4c9330272fcc8e984c');
+INSERT INTO irv_project.Voters (firstname, lastname, email, securedby) VALUES ('Two', 'TestVoter', 'fake2@fake.com', 'testpass');
+INSERT INTO irv_project.Voters (firstname, lastname, email, securedby) VALUES ('Three', 'TestVoter', 'fake3@fake.com', 'voterpass');
+INSERT INTO irv_project.Voters (firstname, lastname, email, securedby) VALUES ('Four', 'TestVoter', 'fake4@fake.com', 'voterpass');
+INSERT INTO irv_project.Voters (firstname, lastname, email, securedby) VALUES ('Five', 'TestVoter', 'fake5@fake.com', 'voterpass');
+INSERT INTO irv_project.Voters (firstname, lastname, email, securedby) VALUES ('Six', 'TestVoter', 'fake6@fake.com', 'voterpass');
+INSERT INTO irv_project.Voters (firstname, lastname, email, securedby) VALUES ('Seven', 'TestVoter', 'fake7@fake.com', 'voterpass');
+INSERT INTO irv_project.Voters (firstname, lastname, email, securedby) VALUES ('Eight', 'TestVoter', 'fake8@fake.com', 'voterpass');
+INSERT INTO irv_project.Voters (firstname, lastname, email, securedby) VALUES ('Nine', 'TestVoter', 'fake9@fake.com', 'voterpass');
+INSERT INTO irv_project.Voters (firstname, lastname, email, securedby) VALUES ('Ten', 'TestVoter', 'fake10@fake.com', 'voterpass');
+INSERT INTO irv_project.Voters (firstname, lastname, email, securedby) VALUES ('Aaron', 'Anderson', 'irvingmichael@gmail.com', 'voterpass');
+INSERT INTO irv_project.Voters (firstname, lastname, email, securedby) VALUES ('Admin', 'Istration', 'admin@fake.com', 'adminpass');
+INSERT INTO irv_project.Voters (firstname, lastname, email, securedby) VALUES ('test', 'voter', 'fake11@fake.com', null);
+INSERT INTO irv_project.Voters (firstname, lastname, email, securedby) VALUES ('test', 'voter', 'fake12@fake.com', null);
+INSERT INTO irv_project.Voters (firstname, lastname, email, securedby) VALUES ('TestFirst', 'TestLast', 'testemail@fake.com', null);

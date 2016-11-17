@@ -1,9 +1,9 @@
-package com.irvingmichael.irv.persistance;
+package com.irvingmichael.irvapi.persistance;
 
-import com.irvingmichael.irv.entity.Choice;
+import com.irvingmichael.irvapi.entity.Choice;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -26,7 +26,7 @@ public class GenericDaoTest {
         GenericDao<Choice> choiceDao = new GenericDao<>(Choice.class);
         List<Choice> choices;
         choices = choiceDao.getAll();
-        assertEquals("Incorrect number of choices returned", 4, choices.size());
+        assertTrue(choices.size() > 4);
     }
 
     @Test

@@ -1,4 +1,4 @@
-package com.irvingmichael.irv.persistance;
+package com.irvingmichael.irvapi.persistance;
 
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
@@ -40,7 +40,7 @@ public class GenericDao<T> {
 
         try {
             tx = session.beginTransaction();
-            session.save(object);
+            id = (Integer) session.save(object);
             tx.commit();
             log.debug("Created " + object.getClass().getName() + " with id " +
                     "of: " + id);
@@ -54,14 +54,27 @@ public class GenericDao<T> {
         return id;
     }
 
+    /**
+     * Return array list of all objects built from the database entries
+     * @return Array list of the specified type of objects
+     */
     public List<T> getAll() {
         return (ArrayList<T>)getSession().createCriteria(type).list();
     }
 
+    /**
+     * Returns an object of the specified type built from the database entry with the supplied id.
+     * @param id Id of database entry to return
+     * @return Object of specified type with the retrieved information
+     */
     public T getById(int id) {
         return (T) getSession().get(type, id);
     }
 
+    /**
+     * Update the database with information from supplied object
+     * @param object Object to update the database with
+     */
     public void update(T object) {
 
         Session session = getSession();
@@ -80,6 +93,10 @@ public class GenericDao<T> {
         }
     }
 
+    /**
+     * Delete the database entry for the supplied object
+     * @param object Object to delete the database entry for
+     */
     public void delete(T object) {
         Session session = getSession();
         Transaction tx = null;
@@ -96,6 +113,10 @@ public class GenericDao<T> {
         }
     }
 
+    /**
+     * Gets a seesion from the session factory
+     * @return New session
+     */
     private Session getSession() {
         return SessionFactoryProvider.getSessionFactory().openSession();
     }

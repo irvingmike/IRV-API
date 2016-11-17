@@ -1,0 +1,21 @@
+# Set root logger level to INFO, a console appender and a file appender.
+log4j.rootLogger=INFO, FILE
+
+
+# CONSOLE Logging
+log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
+log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
+log4j.appender.CONSOLE.layout.ConversionPattern=%d %-4r [%t] %-5p %c %x - %m%n
+
+# Main log file logging
+log4j.appender.FILE=org.apache.log4j.FileAppender
+log4j.appender.FILE.File=logs/irv-log.txt
+log4j.appender.FILE.layout=org.apache.log4j.PatternLayout
+log4j.appender.FILE.layout.ConversionPattern=[%d] %m%n
+
+# Debug file logging
+log4j.category.debugLogger=DEBUG, debugLog
+log4j.appender.debugLog=org.apache.log4j.FileAppender
+log4j.appender.debugLog.File=logs/irv-debug-log.txt
+log4j.appender.debugLog.layout=org.apache.log4j.PatternLayout
+log4j.appender.debugLog.layout.ConversionPattern=[%d{yyyy-MMM-dd HH:mm:ss,SSS}] %p - %m%n

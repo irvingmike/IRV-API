@@ -1,8 +1,8 @@
-package com.irvingmichael.irv.entity;
+package com.irvingmichael.irvapi.entity;
 
-import com.irvingmichael.irv.entity.Choice;
-import com.irvingmichael.irv.entity.Poll;
-import com.irvingmichael.irv.entity.Vote;
+import com.irvingmichael.irvapi.entity.Choice;
+import com.irvingmichael.irvapi.entity.Poll;
+import com.irvingmichael.irvapi.entity.Vote;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
@@ -13,12 +13,11 @@ import java.util.LinkedHashMap;
  */
 public class TestPollSetup {
 
-    Poll testPoll;
+    public Poll testPoll;
 
-    private final Logger logger = Logger.getLogger(this.getClass());
-
-
-    TestPollSetup() {
+    private final Logger log = Logger.getLogger("debugLogger");
+    
+    public TestPollSetup() {
         testPoll = new Poll("Test Poll");
         testPoll.setChoices(makeTestChoices());
         testPoll.setVotes(makeTestVotes());

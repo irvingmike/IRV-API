@@ -1,6 +1,6 @@
-package com.irvingmichael.irv.entity;
+package com.irvingmichael.irvapi.entity;
 
-import com.irvingmichael.irv.entity.*;
+import com.irvingmichael.irvapi.entity.*;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -17,7 +17,12 @@ import static org.junit.Assert.*;
 public class PollTest {
 
     private static Poll poll;
-    private final Logger logger = Logger.getLogger(this.getClass());
+    private final Logger log = Logger.getLogger("debugLogger");
+
+    public PollTest() {
+        poll = new TestPollSetup().testPoll;
+        poll.setCurrentChoices();
+    }
 
     @BeforeClass
     public static void setup() {
@@ -25,11 +30,10 @@ public class PollTest {
     }
     @Test
     public void countVotes() throws Exception {
-        logger.debug("***** Vote Counting *****");
-        poll = new TestPollSetup().testPoll;
+        poll.setVotesCountsToZero();
         poll.countVotes();
         for (Map.Entry<Integer, Integer> entry : poll.getVoteCounts().entrySet()) {
-            logger.debug("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+            log.debug("Key: " + entry.getKey() + ", Value: " + entry.getValue());
         }
         assertEquals("Bad count for choice A", (Integer) 3, poll.getVoteCounts().get(1));
         assertEquals("Bad count for choice B", (Integer) 4, poll.getVoteCounts().get(2));
@@ -48,7 +52,7 @@ public class PollTest {
     }
     @Test
     public void resetChoiceCounts() throws Exception {
-        poll.resetChoiceCounts();
+        poll.setVotesCountsToZero();
         for (Map.Entry<Integer, Integer> entry : poll.getVoteCounts().entrySet()) {
             assertEquals("Vote count not se to zero", (Integer) 0, entry.getValue());
         }
@@ -102,6 +106,7 @@ public class PollTest {
     }
     @Test
     public void getLowestVoteGetter() throws Exception {
+        poll.setCurrentChoices();
         poll.countVotes();
         assertEquals("Incorrect lowest voter getter returned", 4, poll.getLowestVoteGetter());
     }
@@ -137,9 +142,9 @@ public class PollTest {
     @Test
     public void setVotesCountsToZero() throws Exception {
         poll.setVoteCounts(new HashMap<Integer, Integer>() {{
-                put(1,1);
-                put(2,2);
-                put(3,3);
+            put(1,1);
+            put(2,2);
+            put(3,3);
         }});
         poll.setVotesCountsToZero();
         assertEquals("Vote count 1 didn't set to zero", (Integer) 0, poll.getVoteCounts().get(1));
@@ -149,12 +154,8 @@ public class PollTest {
 
     @Test
     public void getPollCode() throws Exception {
-        String pollCode = poll.getPollCode();
-        String pollCodeVerify = poll.getPollCode();
-
-        assertEquals("Poll code generated at incorrect size", 8, pollCode.length());
-        assertTrue(pollCode == pollCodeVerify);
-
+        Poll testPoll = new Poll();
+        assertEquals("Poll code generated at incorrect size", 8, testPoll.getPollCode().length());
     }
 
     @Test
@@ -180,6 +181,16 @@ public class PollTest {
     public void getChoiceNameById() throws Exception {
         assertEquals("Wrong name returned for choice 1", "Test Choice A", poll.getChoiceNameById(1));
         assertEquals("Wrong name returned for choice 2", "Test Choice B", poll.getChoiceNameById(2));
+
+    }
+
+    @Test
+    public void pollTesting() {
+        poll.determineWinner();
+
+        // Comment out the last 4 testVotes in 'TestPollSetup' due to tied choices [C and D]
+        assertEquals(1, poll.getWinner());
+        assertEquals(0, poll.getPollid());
 
     }
 

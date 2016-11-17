@@ -1,0 +1,16 @@
+INSERT INTO irv_project.AccessRoles (email, accessrole) VALUES ('admin@fake.com', 'adminStd');
+INSERT INTO irv_project.AccessRoles (email, accessrole) VALUES ('fake10@fake.com', 'voterStd');
+INSERT INTO irv_project.AccessRoles (email, accessrole) VALUES ('fake1@fake.com', 'voterStd');
+INSERT INTO irv_project.AccessRoles (email, accessrole) VALUES ('fake2@fake.com', 'voterStd');
+INSERT INTO irv_project.AccessRoles (email, accessrole) VALUES ('fake3@fake.com', 'voterStd');
+INSERT INTO irv_project.AccessRoles (email, accessrole) VALUES ('fake4@fake.com', 'voterStd');
+INSERT INTO irv_project.AccessRoles (email, accessrole) VALUES ('fake5@fake.com', 'voterStd');
+INSERT INTO irv_project.AccessRoles (email, accessrole) VALUES ('fake6@fake.com', 'voterStd');
+INSERT INTO irv_project.AccessRoles (email, accessrole) VALUES ('fake7@fake.com', 'voterStd');
+INSERT INTO irv_project.AccessRoles (email, accessrole) VALUES ('fake8@fake.com', 'voterStd');
+INSERT INTO irv_project.AccessRoles (email, accessrole) VALUES ('fake9@fake.com', 'voterStd');
+INSERT INTO irv_project.AccessRoles (email, accessrole) VALUES ('irvingmichael@gmail.com', 'voterStd');
+INSERT INTO irv_project.AccessRoles (email, accessrole) VALUES ('fake2@fake.com', 'voterStd');
+INSERT INTO irv_project.AccessRoles (email, accessrole) VALUES ('fake2@fake.com', 'voterStd');
+INSERT INTO irv_project.AccessRoles (email, accessrole) VALUES ('fake2@fake.com', 'voterStd');
+INSERT INTO irv_project.AccessRoles (email, accessrole) VALUES ('fake2@fake.com', 'voterStd');
